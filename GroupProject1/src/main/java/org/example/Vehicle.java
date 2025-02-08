@@ -7,7 +7,7 @@ public class Vehicle {
     private String acquisitionDate;
     private double price;
 
-    public Vehicle(String vehicleId,String manufacture, String model, String acquisitionDate, double price){
+    public Vehicle(String vehicleId, String manufacture, String model, String acquisitionDate, double price) {
         this.vehicleId = vehicleId;
         this.manufacture = manufacture;
         this.model = model;
@@ -65,4 +65,6 @@ public class Vehicle {
                 ", price=" + price +
                 '}';
     }
+
 }
+
