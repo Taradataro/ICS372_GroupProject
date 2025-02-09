@@ -80,7 +80,7 @@ public class Dealership {
         if (vehicles.isEmpty()) {
             System.out.println("No vehicles in inventory.");
         } else {
-            System.out.println("-----------------------------------------");
+            //System.out.println("-----------------------------------------");
             System.out.println("Current inventory of vehicles:");
             for (Vehicle vehicle : vehicles) {
                 System.out.println("Vehicle ID: " + vehicle.getVehicleId());

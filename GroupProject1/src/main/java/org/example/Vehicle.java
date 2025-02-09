@@ -72,6 +72,7 @@ public class Vehicle {
         this.vehicleType = vehicleType;
     }
 
+    //toString method that return the vehicles object
     @Override
     public String toString() {
         return "Vehicle{" +
