@@ -51,6 +51,7 @@ public class Dealership {
     }
 
     // Override toString to display dealership info
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
