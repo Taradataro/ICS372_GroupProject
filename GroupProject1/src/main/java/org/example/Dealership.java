@@ -8,6 +8,7 @@ public class Dealership {
     private boolean enabled;
     private List<Vehicle> vehicles;
 
+    // Constructor
     public Dealership(String dealershipId, boolean enabled) {
         this.dealershipId = dealershipId;
         this.enabled = enabled;
@@ -44,6 +45,12 @@ public class Dealership {
         return enabled;
     }
 
+    // Getter for dealershipId
+    public String getDealershipId() {
+        return dealershipId;
+    }
+
+    // Override toString to display dealership info
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -55,4 +62,18 @@ public class Dealership {
         }
         return sb.toString();
     }
+
+    // Method to print current vehicles
+    public void printCurrentVehicles() {
+        if (vehicles.isEmpty()) {
+            System.out.println("No vehicles in inventory.");
+        } else {
+            System.out.println("-----------------------------------------");
+            System.out.println("Current inventory of vehicles:");
+            for (Vehicle vehicle : vehicles) {
+                System.out.println(vehicle);
+            }
+        }
+    }
 }
+
