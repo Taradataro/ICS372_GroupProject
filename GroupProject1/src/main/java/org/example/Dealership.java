@@ -66,6 +66,7 @@ public class Dealership {
 
     // Method to print current vehicles
     public void printCurrentVehicles() {
+        /*
         if (vehicles.isEmpty()) {
             System.out.println("No vehicles in inventory.");
         } else {
@@ -73,6 +74,23 @@ public class Dealership {
             System.out.println("Current inventory of vehicles:");
             for (Vehicle vehicle : vehicles) {
                 System.out.println(vehicle);
+
+         */
+
+        if (vehicles.isEmpty()) {
+            System.out.println("No vehicles in inventory.");
+        } else {
+            System.out.println("-----------------------------------------");
+            System.out.println("Current inventory of vehicles:");
+            for (Vehicle vehicle : vehicles) {
+                System.out.println("Vehicle ID: " + vehicle.getVehicleId());
+                System.out.println("Manufacturer: " + vehicle.getManufacture());
+                System.out.println("Model: " + vehicle.getModel());
+                System.out.println("Price: " + vehicle.getPrice());
+                System.out.println("Acquisition Date: " + vehicle.getAcquisitionDate());
+                System.out.println("Vehicle Type: " + vehicle.getVehicleType());
+                System.out.println("-----------------------------------------");
+
             }
         }
     }
