@@ -3,7 +3,7 @@ package com.trackingcompany.main;
 
 /**
  *
- * @author ahlam
+ * @author 
  */
 public class SUV extends Vehicle {
     //Represents an SUV. This class extends the Vehicle class and inherits its properties
