@@ -2,7 +2,7 @@ package com.trackingcompany.main;
 
 /**
  *
- * @author ahlam
+ * @author 
  */
 public class SportsCar extends Vehicle{
     //Represents a Sports Car. This class extends the Vehicle class and inherits its properties
