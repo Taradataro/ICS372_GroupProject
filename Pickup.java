@@ -2,7 +2,7 @@ package com.trackingcompany.main;
 
 /**
  *
- * @author ahlam
+ * @author 
  */
 public class Pickup extends Vehicle{
     //Represents a Pick up. This class extends the Vehicle class and inherits its properties
