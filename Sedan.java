@@ -2,7 +2,7 @@ package com.trackingcompany.main;
 
 /**
  *
- * @author ahlam
+ * @author 
  */
 public class Sedan extends Vehicle {
     //Represents a Sedan. This class extends the Vehicle class and inherits its properties
