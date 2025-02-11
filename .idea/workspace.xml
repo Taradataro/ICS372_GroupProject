@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="05919fd2-dd7c-45bb-a39b-1eb96e13cc21" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GroupProject1/src/main/java/org/example/Dealership.java" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject1/src/main/java/org/example/Dealership.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GroupProject1/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject1/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GroupProject1/src/main/java/org/example/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject1/src/main/java/org/example/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GroupProject1/src/main/java/org/example/jsonExport.java" beforeDir="false" afterPath="$PROJECT_DIR$/GroupProject1/src/main/java/org/example/jsonExport.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,9 +28,12 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Taradataro/ICS372_GroupProject.git&quot;,
-    &quot;accountId&quot;: &quot;29ac7762-6ba0-4dd3-9c6d-8e66f585af5c&quot;
+    &quot;accountId&quot;: &quot;99f462f6-3dcf-4efc-adc4-2c3a06622f45&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -55,17 +62,21 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/sreir/OneDrive/Desktop/project372/GroupProject1",
-    "project.structure.last.edited": "Project",
+    "last_opened_file_path": "C:/Users/ahlam/ICS372_GroupProject1/GroupProject1/src/main/java/org/example",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler"
   }
 }]]></component>
   <component name="RunManager" selected="Application.Run">
     <configuration name="Run" type="Application" factoryName="Application">
-      <option name="ALTERNATIVE_JRE_PATH" value="$PROJECT_DIR$/../../../../../Program Files/Eclipse Adoptium/jdk-17.0.12.7-hotspot" />
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-23" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="project372" />
+      <option name="PROGRAM_PARAMETERS" value="C:\Users\ahlam\ICS372_GroupProject1" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/GroupProject1/src/main/java/org/example" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

@@ -1,6 +1,7 @@
 package org.example;
 
 import java.time.LocalDate;
+import org.json.simple.JSONObject;
 
 public class Vehicle {
     private String vehicleId;
@@ -9,6 +10,8 @@ public class Vehicle {
     private LocalDate acquisitionDate; // Changed to LocalDate
     private double price;
     private String vehicleType;
+    private JSONObject metadata;
+
 
     // Constructor that accepts LocalDate for acquisitionDate
     public Vehicle(String vehicleId, String manufacture, String model, LocalDate acquisitionDate, double price, String vehicleType) {
@@ -72,9 +75,19 @@ public class Vehicle {
         this.vehicleType = vehicleType;
     }
 
+    // 4: Getter and setter for metadata:
+    public JSONObject getMetadata() {
+        return metadata;
+    }
+
+    public void setMetadata(JSONObject metadata) {
+        this.metadata = metadata;
+    }
+
     //toString method that return the vehicles object
     @Override
     public String toString() {
+        String metaStr = (metadata != null && !metadata.isEmpty()) ? ", metadata=" + metadata : "";
         return "Vehicle{" +
                 "vehicleId='" + vehicleId + '\'' +
                 ", manufacture='" + manufacture + '\'' +
@@ -82,6 +95,7 @@ public class Vehicle {
                 ", acquisitionDate=" + acquisitionDate +
                 ", price=" + price +
                 ", vehicleType='" + vehicleType + '\'' +
+                metaStr +
                 '}';
     }
 }

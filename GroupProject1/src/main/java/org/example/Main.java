@@ -1,3 +1,4 @@
+// Main.java
 package org.example;
 
 import org.json.simple.JSONArray;
@@ -11,6 +12,7 @@ import java.nio.file.Paths;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,7 +22,7 @@ public class Main {
         // Create a dealership and enable vehicle acquisition
         Dealership dealership = new Dealership("77338", true);
 
-        // Read and add vehicles from JSON file
+        // Read and add vehicles from JSON file (Step 4: now captures metadata)
         readAndAddVehiclesFromJson(filePath, dealership);
 
         // Print current vehicles
@@ -32,8 +34,13 @@ public class Main {
         // Print the current vehicles again
         dealership.printCurrentVehicles();
 
-        // Export dealership data to JSON
+        // Export dealership data to JSON (includes metadata if available)
         jsonExport.exportDealershipToJson(dealership, "userEnable.json");
+
+        // ----------------------------------------------------------------
+        // Step 5: Process admin commands interactively for adding vehicles,
+        // enabling/disabling dealer acquisition.
+        processAdminCommands(dealership);
     }
 
     private static void readAndAddVehiclesFromJson(String filePath, Dealership dealership) {
@@ -70,15 +77,30 @@ public class Main {
                 String vehicleId = (String) vehicleJson.get("vehicle_id");
                 String manufacturer = (String) vehicleJson.get("vehicle_manufacturer");
                 String model = (String) vehicleJson.get("vehicle_model");
-                long price = (long) vehicleJson.get("price");
+                // Cast price to double (if needed)
+                double price = ((Number) vehicleJson.get("price")).doubleValue();
                 long acquisitionDateLong = (long) vehicleJson.get("acquisition_date");
                 String vehicleType = (String) vehicleJson.get("vehicle_type");
 
                 // Convert acquisition date from timestamp to LocalDate
                 LocalDate acquisitionDate = convertTimestampToDate(acquisitionDateLong);
 
-                // Create a new vehicle and add it to the dealership
+                // ***** STEP 4: Extract and store additional metadata *****
+                JSONObject metadata = new JSONObject();
+                // Iterate over all keys and add any extra keys to metadata
+                for (Object keyObj : vehicleJson.keySet()) {
+                    String key = (String) keyObj;
+                    if (!key.equals("dealership_id") && !key.equals("vehicle_type") &&
+                            !key.equals("vehicle_manufacturer") && !key.equals("vehicle_model") &&
+                            !key.equals("vehicle_id") && !key.equals("price") &&
+                            !key.equals("acquisition_date")) {
+                        metadata.put(key, vehicleJson.get(key));
+                    }
+                }
+
+                // Create a new Vehicle and set its metadata
                 Vehicle vehicle = new Vehicle(vehicleId, manufacturer, model, acquisitionDate, price, vehicleType);
+                vehicle.setMetadata(metadata);
                 dealership.addVehicle(vehicle);
             }
 
@@ -89,13 +111,68 @@ public class Main {
 
     // Helper method to convert timestamp to LocalDate
     private static LocalDate convertTimestampToDate(long timestamp) {
-        // Convert the timestamp (in milliseconds) to an Instant, then to ZonedDateTime, and finally to LocalDate
-        return Instant.ofEpochMilli(timestamp)  // Convert timestamp (milliseconds) to Instant
-                .atZone(ZoneId.systemDefault())  // Convert Instant to ZonedDateTime using system's default timezone
-                .toLocalDate();  // Extract the LocalDate part
+        return Instant.ofEpochMilli(timestamp)
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate();
     }
 
+    // 5: New method to process admin commands
+    private static void processAdminCommands(Dealership dealership) {
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("\n--- Admin Command Menu ---");
+            System.out.println("1. Add incoming vehicle");
+            System.out.println("2. Enable dealer vehicle acquisition");
+            System.out.println("3. Disable dealer vehicle acquisition");
+            System.out.println("4. Exit");
+            System.out.print("Enter command number: ");
+            String choice = scanner.nextLine();
+
+            if (choice.equals("1")) {
+                // Add incoming vehicle
+                System.out.print("Enter vehicle id: ");
+                String id = scanner.nextLine();
+                System.out.print("Enter manufacturer: ");
+                String manu = scanner.nextLine();
+                System.out.print("Enter model: ");
+                String model = scanner.nextLine();
+                System.out.print("Enter acquisition date (yyyy-MM-dd): ");
+                String dateStr = scanner.nextLine();
+                LocalDate date = LocalDate.parse(dateStr);
+                System.out.print("Enter price: ");
+                double price = Double.parseDouble(scanner.nextLine());
+                System.out.print("Enter vehicle type: ");
+                String type = scanner.nextLine();
+
+                // Prompt for metadata entries
+                JSONObject metadata = new JSONObject();
+                System.out.print("Enter number of metadata entries (0 if none): ");
+                int metaCount = Integer.parseInt(scanner.nextLine());
+                for (int i = 0; i < metaCount; i++) {
+                    System.out.print("Enter metadata key: ");
+                    String key = scanner.nextLine();
+                    System.out.print("Enter metadata value: ");
+                    String value = scanner.nextLine();
+                    metadata.put(key, value);
+                }
+
+                Vehicle vehicle = new Vehicle(id, manu, model, date, price, type);
+                vehicle.setMetadata(metadata);
+                dealership.addVehicle(vehicle);
+
+            } else if (choice.equals("2")) {
+                // Enable dealer vehicle acquisition
+                dealership.enableReceiving();
+            } else if (choice.equals("3")) {
+                // Disable dealer vehicle acquisition
+                dealership.disableReceiving();
+            } else if (choice.equals("4")) {
+                System.out.println("Exiting admin command menu.");
+                break;
+            } else {
+                System.out.println("Invalid command. Please try again.");
+            }
+        }
+
+    }
 }
-
-
-

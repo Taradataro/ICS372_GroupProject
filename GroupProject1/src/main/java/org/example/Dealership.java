@@ -34,6 +34,15 @@ public class Dealership {
             System.out.println("Dealer " + dealershipId + " is now disabled and can't receive vehicles.");
         }
     }
+    // 5: New method to enable receiving vehicles :
+    public void enableReceiving() {
+        if (enabled) {
+            System.out.println("Dealer " + dealershipId + " is already enabled to receive vehicles.");
+        } else {
+            enabled = true;
+            System.out.println("Dealer " + dealershipId + " is now enabled to receive vehicles.");
+        }
+    }
 
     // Get list of vehicles
     public List<Vehicle> getVehicles() {
@@ -77,6 +86,11 @@ public class Dealership {
                 System.out.println("Price: " + vehicle.getPrice());
                 System.out.println("Acquisition Date: " + vehicle.getAcquisitionDate());
                 System.out.println("Vehicle Type: " + vehicle.getVehicleType());
+                System.out.println("***************************************");
+                // If metadata exists, print it
+                if (vehicle.getMetadata() != null && !vehicle.getMetadata().isEmpty()) {
+                    System.out.println("Metadata: " + vehicle.getMetadata());
+                }
                 System.out.println("***************************************");
             }
         }
