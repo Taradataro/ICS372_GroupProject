@@ -19,7 +19,7 @@ public class Dealership {
     public void addVehicle(Vehicle vehicle) {
         if (enabled) {
             vehicles.add(vehicle);
-            System.out.println("Vehicle has been added to dealer " + dealershipId + ".");
+            System.out.println("Vehicle " + vehicle.getVehicleId() + " has been added to dealer " + dealershipId + ".");
         } else {
             System.out.println("Dealer " + dealershipId + " is not enabled to receive vehicles.");
         }
@@ -66,22 +66,10 @@ public class Dealership {
 
     // Method to print current vehicles
     public void printCurrentVehicles() {
-        /*
         if (vehicles.isEmpty()) {
-            System.out.println("No vehicles in inventory.");
+            System.out.println("\nNo vehicles in inventory.");
         } else {
-            System.out.println("-----------------------------------------");
-            System.out.println("Current inventory of vehicles:");
-            for (Vehicle vehicle : vehicles) {
-                System.out.println(vehicle);
-
-         */
-
-        if (vehicles.isEmpty()) {
-            System.out.println("No vehicles in inventory.");
-        } else {
-            //System.out.println("-----------------------------------------");
-            System.out.println("Current inventory of vehicles:");
+            System.out.println("\nCurrent inventory of vehicles:"); // \n before text
             for (Vehicle vehicle : vehicles) {
                 System.out.println("Vehicle ID: " + vehicle.getVehicleId());
                 System.out.println("Manufacturer: " + vehicle.getManufacture());
@@ -89,8 +77,7 @@ public class Dealership {
                 System.out.println("Price: " + vehicle.getPrice());
                 System.out.println("Acquisition Date: " + vehicle.getAcquisitionDate());
                 System.out.println("Vehicle Type: " + vehicle.getVehicleType());
-                System.out.println("-----------------------------------------");
-
+                System.out.println("***************************************");
             }
         }
     }

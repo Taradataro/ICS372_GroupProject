@@ -17,29 +17,23 @@ public class Main {
         // Use Path object for more flexible file paths
         String filePath = Paths.get("src", "main", "java", "org", "example", "testFile.json").toAbsolutePath().toString();
 
-        String filePath1 = Paths.get("src", "main", "java", "org", "example", "testFile1.json").toAbsolutePath().toString();
         // Create a dealership and enable vehicle acquisition
         Dealership dealership = new Dealership("77338", true);
-        Dealership dealership1 = new Dealership("12233", true);
 
         // Read and add vehicles from JSON file
         readAndAddVehiclesFromJson(filePath, dealership);
-        readAndAddVehiclesFromJson(filePath1, dealership1);
 
         // Print current vehicles
-        //dealership.printCurrentVehicles();
+        dealership.printCurrentVehicles();
 
         // Disable the dealership from receiving new vehicles
         dealership.disableReceiving();
-        dealership1.disableReceiving();
 
         // Print the current vehicles again
         dealership.printCurrentVehicles();
-        dealership1.printCurrentVehicles();
 
         // Export dealership data to JSON
-        jsonExport.exportDealershipToJson(dealership, "userInput.json");
-        jsonExport.exportDealershipToJson(dealership1, "userInput1.json");
+        jsonExport.exportDealershipToJson(dealership, "userEnable.json");
     }
 
     private static void readAndAddVehiclesFromJson(String filePath, Dealership dealership) {
