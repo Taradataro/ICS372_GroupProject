@@ -1,0 +1,40 @@
+{
+  "car_inventory":[
+    {
+      "dealership_id":"12233",
+      "vehicle_type":"SUV",
+      "vehicle_manufacturer":"Honda",
+      "vehicle_model":"CRV",
+      "vehicle_id":"24680",
+      "price": 32799,
+      "acquisition_date": 1739366400000
+    },
+    {
+      "dealership_id":"12233",
+      "vehicle_type":"sedan",
+      "vehicle_manufacturer":"Mazda",
+      "vehicle_model":"Edmunds",
+      "vehicle_id":"22334987",
+      "price": 23950,
+      "acquisition_date": 1739366400000
+    },
+    {
+      "dealership_id":"12233",
+      "vehicle_type":"pickup",
+      "vehicle_manufacturer":"Toyota",
+      "vehicle_model":"Tacoma",
+      "vehicle_id":"984785893",
+      "price": 51600,
+      "acquisition_date": 1739366400000
+    },
+    {
+      "dealership_id":"12233",
+      "vehicle_type":"sports car",
+      "vehicle_manufacturer":"Mercedes",
+      "vehicle_model":"AMG",
+      "vehicle_id":"98573892",
+      "price": 70000,
+      "acquisition_date": 1739366400000
+    }
+  ]
+}
