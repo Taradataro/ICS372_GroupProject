@@ -1,3 +1,4 @@
+// Main.java
 package org.example;
 
 import org.json.simple.JSONArray;
@@ -15,26 +16,13 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
         // Use Path object for more flexible file paths
         String filePath = Paths.get("src", "main", "java", "org", "example", "testFile.json").toAbsolutePath().toString();
 
-        // Prompt user for dealership ID
-        System.out.print("Enter dealership ID: ");
-        String dealershipId = scanner.nextLine();
+        // Create a dealership and enable vehicle acquisition
+        Dealership dealership = new Dealership("77338", true);
 
-        // Prompt user for enabling dealer
-        System.out.print("Enabled Dealer: (yes/no): ");
-        String input = scanner.nextLine().trim().toLowerCase();
-        boolean enableReceiving = input.equals("yes");
-
-        // Create the dealership with user input
-        Dealership dealership = new Dealership(dealershipId, enableReceiving);
-        System.out.println("\nDealership created with ID: " + dealershipId);
-        System.out.println("Dealer is enabled: " + enableReceiving);
-
-        // Read and add vehicles from JSON file
+        // Read and add vehicles from JSON file (Step 4: now captures metadata)
         readAndAddVehiclesFromJson(filePath, dealership);
 
         // Print current vehicles
@@ -46,7 +34,7 @@ public class Main {
         // Print the current vehicles again
         dealership.printCurrentVehicles();
 
-        // Export dealership data to JSON
+        // Export dealership data to JSON (includes metadata if available)
         jsonExport.exportDealershipToJson(dealership, "userEnable.json");
 
         //5: Process admin commands interactively for adding vehicles,
@@ -96,7 +84,7 @@ public class Main {
                 // Convert acquisition date from timestamp to LocalDate
                 LocalDate acquisitionDate = convertTimestampToDate(acquisitionDateLong);
 
-                // 4: Store additional metadata 
+                // 4: Store additional metadata
                 JSONObject metadata = new JSONObject();
                 // Iterate over all keys and add any extra keys to metadata
                 for (Object keyObj : vehicleJson.keySet()) {
@@ -170,9 +158,6 @@ public class Main {
                 Vehicle vehicle = new Vehicle(id, manu, model, date, price, type);
                 vehicle.setMetadata(metadata);
                 dealership.addVehicle(vehicle);
-
-                // Update the JSON file
-                jsonExport.exportDealershipToJson(dealership, "userEnable.json");
 
             } else if (choice.equals("2")) {
                 // Enable dealer vehicle acquisition
