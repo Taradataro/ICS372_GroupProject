@@ -89,12 +89,13 @@ public class Vehicle {
 
     // Method for display Vehicle information
     public void displayVehicleInfo() {
-        System.out.println("Vehicle ID: " + vehicleId);
+        System.out.println("Vehicle Type: " + vehicleType);
         System.out.println("Manufacturer: " + manufacturer);
         System.out.println("Model: " + model);
+        System.out.println("Vehicle ID: " + vehicleId);
         System.out.println("Price: " + price);
         System.out.println("Acquisition Date: " + acquisitionDate);
-        System.out.println("Vehicle Type: " + vehicleType);
+
         if (!metadata.isEmpty()) {
             System.out.println("Metadata: " + metadata.toJSONString());
         }
