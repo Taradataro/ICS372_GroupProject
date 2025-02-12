@@ -22,6 +22,11 @@ public class jsonExport {
             vehicleJson.put("price", vehicle.getPrice());
             vehicleJson.put("acquisition_date", vehicle.getAcquisitionDate());
 
+            // 4: metadata
+            if (vehicle.getMetadata() != null && !vehicle.getMetadata().isEmpty()) {
+                vehicleJson.put("metadata", vehicle.getMetadata());
+            }
+
             vehiclesJsonArray.add(vehicleJson);
         }
 
