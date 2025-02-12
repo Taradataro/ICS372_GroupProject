@@ -16,13 +16,26 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
         // Use Path object for more flexible file paths
         String filePath = Paths.get("src", "main", "java", "org", "example", "testFile.json").toAbsolutePath().toString();
 
-        // Create a dealership and enable vehicle acquisition
-        Dealership dealership = new Dealership("77338", true);
+        // Prompt user for dealership ID
+        System.out.print("Enter dealership ID: ");
+        String dealershipId = scanner.nextLine();
 
-        // Read and add vehicles from JSON file (Step 4: now captures metadata)
+        // Prompt user for enabling vehicle
+        System.out.print("Enabled vehicle: (yes/no): ");
+        String input = scanner.nextLine().trim().toLowerCase();
+        boolean enableReceiving = input.equals("yes");
+
+        // Create the dealership with user input
+        Dealership dealership = new Dealership(dealershipId, enableReceiving);
+        System.out.println("\nDealership created with ID: " + dealershipId);
+        System.out.println("Vehicle receiving enabled: " + enableReceiving);
+
+        // Read and add vehicles from JSON file
         readAndAddVehiclesFromJson(filePath, dealership);
 
         // Print current vehicles
@@ -34,7 +47,7 @@ public class Main {
         // Print the current vehicles again
         dealership.printCurrentVehicles();
 
-        // Export dealership data to JSON (includes metadata if available)
+        // Export dealership data to JSON
         jsonExport.exportDealershipToJson(dealership, "userEnable.json");
 
         //5: Process admin commands interactively for adding vehicles,

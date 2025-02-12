@@ -6,7 +6,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import org.json.JSONException; // For org.json pretty-printing
 import org.json.JSONTokener; // youtube & google to help w. jason parsing
-import java.io.StringWriter;
 
 public class jsonExport {
 
