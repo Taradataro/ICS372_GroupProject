@@ -25,15 +25,15 @@ public class Main {
         System.out.print("Enter dealership ID: ");
         String dealershipId = scanner.nextLine();
 
-        // Prompt user for enabling vehicle
-        System.out.print("Enabled vehicle: (yes/no): ");
+        // Prompt user for enabling dealer
+        System.out.print("Enabled Dealer: (yes/no): ");
         String input = scanner.nextLine().trim().toLowerCase();
         boolean enableReceiving = input.equals("yes");
 
         // Create the dealership with user input
         Dealership dealership = new Dealership(dealershipId, enableReceiving);
         System.out.println("\nDealership created with ID: " + dealershipId);
-        System.out.println("Vehicle receiving enabled: " + enableReceiving);
+        System.out.println("Dealer is enabled: " + enableReceiving);
 
         // Read and add vehicles from JSON file
         readAndAddVehiclesFromJson(filePath, dealership);
