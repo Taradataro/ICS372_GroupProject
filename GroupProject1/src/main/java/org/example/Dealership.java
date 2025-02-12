@@ -91,7 +91,7 @@ public class Dealership {
                 if (vehicle.getMetadata() != null && !vehicle.getMetadata().isEmpty()) {
                     System.out.println("Metadata: " + vehicle.getMetadata());
                 }
-                System.out.println("***************************************");
+
             }
         }
     }
