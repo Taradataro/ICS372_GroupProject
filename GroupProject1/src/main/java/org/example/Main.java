@@ -37,7 +37,8 @@ public class Main {
         // Export dealership data to JSON (includes metadata if available)
         jsonExport.exportDealershipToJson(dealership, "userEnable.json");
 
-        //5: Process admin commands interactively for adding vehicles,
+        // ----------------------------------------------------------------
+        // Step 5: Process admin commands interactively for adding vehicles,
         // enabling/disabling dealer acquisition.
         processAdminCommands(dealership);
     }
@@ -84,7 +85,7 @@ public class Main {
                 // Convert acquisition date from timestamp to LocalDate
                 LocalDate acquisitionDate = convertTimestampToDate(acquisitionDateLong);
 
-                // 4: Store additional metadata
+                // ***** STEP 4: Extract and store additional metadata *****
                 JSONObject metadata = new JSONObject();
                 // Iterate over all keys and add any extra keys to metadata
                 for (Object keyObj : vehicleJson.keySet()) {
