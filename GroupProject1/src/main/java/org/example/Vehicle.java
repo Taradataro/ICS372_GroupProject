@@ -4,9 +4,8 @@ import java.time.LocalDate;
 import org.json.simple.JSONObject;
 
 public class Vehicle {
-    // Instance fields
     private String vehicleId;
-    private String manufacturer;
+    private String manufacture;
     private String model;
     private LocalDate acquisitionDate; // Changed to LocalDate
     private double price;
@@ -17,15 +16,13 @@ public class Vehicle {
     // Constructor that accepts LocalDate for acquisitionDate
     public Vehicle(String vehicleId, String manufacture, String model, LocalDate acquisitionDate, double price, String vehicleType) {
         this.vehicleId = vehicleId;
-        this.manufacturer = manufacture;
+        this.manufacture = manufacture;
         this.model = model;
         this.acquisitionDate = acquisitionDate;
         this.price = price;
         this.vehicleType = vehicleType;
-        this.metadata = new JSONObject();
     }
 
-    // Overloading constructor
     public Vehicle(String vehicleId, String manufacture, String model, String acquisitionDate, double price) {
     }
 
@@ -39,11 +36,11 @@ public class Vehicle {
     }
 
     public String getManufacture() {
-        return manufacturer;
+        return manufacture;
     }
 
     public void setManufacture(String manufacture) {
-        this.manufacturer = manufacture;
+        this.manufacture = manufacture;
     }
 
     public String getModel() {
@@ -87,28 +84,13 @@ public class Vehicle {
         this.metadata = metadata;
     }
 
-    // Method for display Vehicle information
-    public void displayVehicleInfo() {
-        System.out.println("Vehicle Type: " + vehicleType);
-        System.out.println("Manufacturer: " + manufacturer);
-        System.out.println("Model: " + model);
-        System.out.println("Vehicle ID: " + vehicleId);
-        System.out.println("Price: " + price);
-        System.out.println("Acquisition Date: " + acquisitionDate);
-
-        if (!metadata.isEmpty()) {
-            System.out.println("Metadata: " + metadata.toJSONString());
-        }
-        System.out.println("-----------------------------------------");
-    }
-
     //toString method that return the vehicles object
     @Override
     public String toString() {
         String metaStr = (metadata != null && !metadata.isEmpty()) ? ", metadata=" + metadata : "";
         return "Vehicle{" +
                 "vehicleId='" + vehicleId + '\'' +
-                ", manufacture='" + manufacturer + '\'' +
+                ", manufacture='" + manufacture + '\'' +
                 ", model='" + model + '\'' +
                 ", acquisitionDate=" + acquisitionDate +
                 ", price=" + price +
