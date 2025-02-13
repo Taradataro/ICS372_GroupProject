@@ -41,7 +41,7 @@ public class AdminConsole {
                     dealership.disableReceiving();
                     break;
                 case "4":
-                    JsonHelper.exportDealershipToJson(dealership, "dealership_export.json");
+                    JsonHelper.exportDealershipToJson(dealership, "output.json");
                     break;
                 case "5":
                     System.out.println("Exiting admin command menu.");
@@ -83,5 +83,8 @@ public class AdminConsole {
         Vehicle vehicle = new Vehicle(id, manu, model, date, price, type);
         vehicle.setMetadata(metadata);
         dealership.addVehicle(vehicle);
+
+        // Add vehicle in json file when we add new vehicle
+        JsonHelper.exportDealershipToJson(dealership, "output.json");
     }
 }

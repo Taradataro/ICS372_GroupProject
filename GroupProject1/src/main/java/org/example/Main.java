@@ -17,14 +17,8 @@ public class Main {
         // Print current vehicles
         dealership.printCurrentVehicles();
 
-        // Disable the dealership from receiving new vehicles
-        dealership.disableReceiving();
-
-        // Print the current vehicles again
-        dealership.printCurrentVehicles();
-
         // Export dealership data to JSON (includes metadata if available)
-        JsonHelper.exportDealershipToJson(dealership, "userEnable.json");
+        JsonHelper.exportDealershipToJson(dealership, "output.json");
 
         // Step 5: Process admin commands interactively for adding vehicles,
         // enabling/disabling dealer acquisition.

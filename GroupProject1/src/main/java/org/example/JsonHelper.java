@@ -4,6 +4,9 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.JSONTokener;
+import org.json.JSONException;
+
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -18,6 +21,7 @@ public class JsonHelper {
         JSONParser jsonParser = new JSONParser();
         try (FileReader reader = new FileReader(filepath)) {
             JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);
+            // Read json file from car_inventory and store in Json array
             JSONArray carInventory = (JSONArray) jsonObject.get("car_inventory");
 
             for (Object obj : carInventory) {
@@ -90,10 +94,21 @@ public class JsonHelper {
 
         // Export output to new json file
         try (FileWriter file = new FileWriter(filePath)) {
-            file.write(dealershipJson.toJSONString());
+            file.write(prettyPrintJson(dealershipJson));
             System.out.println("Dealership data exported successfully to " + filePath);
         } catch (IOException e) {
             System.err.println("Error exporting dealership to JSON: " + e.getMessage());
+        }
+    }
+
+    // Pretty print since without it would print one line format
+    private static String prettyPrintJson(JSONObject jsonObject) {
+        try {
+            // Convert JSON simple to org json object
+            org.json.JSONObject jsonPretty = new org.json.JSONObject(new JSONTokener(jsonObject.toJSONString()));
+            return jsonPretty.toString(4); // creating 4 indent spaces
+        } catch (JSONException e) {
+            return jsonObject.toJSONString();
         }
     }
 }
