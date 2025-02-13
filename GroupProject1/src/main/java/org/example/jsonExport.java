@@ -4,6 +4,9 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import java.io.FileWriter;
 import java.io.IOException;
+import org.json.JSONException; // For org.json pretty-printing
+import org.json.JSONTokener; // youtube & google to help w. jason parsing
+import java.io.StringWriter;
 
 public class jsonExport {
 
@@ -37,6 +40,17 @@ public class jsonExport {
             System.out.println("Dealership data exported successfully to " + filePath);
         } catch (IOException e) {
             System.err.println("Error exporting dealership to JSON: " + e.getMessage());
+        }
+    }
+
+    // Pretty print since without it would print one line format
+    private static String prettyPrintJson(JSONObject jsonObject) {
+        try {
+            // Convert JSON simple to org json object
+            org.json.JSONObject jsonPretty = new org.json.JSONObject(new JSONTokener(jsonObject.toJSONString()));
+            return jsonPretty.toString(4); // creating 4 indent spaces
+        } catch (JSONException e) {
+            return jsonObject.toJSONString();
         }
     }
 }
