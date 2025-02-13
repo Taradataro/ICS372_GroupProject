@@ -1,4 +1,3 @@
-// Main.java
 package org.example;
 
 import org.json.simple.JSONArray;
@@ -34,11 +33,11 @@ public class Main {
         // Print the current vehicles again
         dealership.printCurrentVehicles();
 
-        // Export dealership data to JSON (includes metadata if available)
+
+        // Export dealership data to JSON (includes metadata )
         jsonExport.exportDealershipToJson(dealership, "userEnable.json");
 
-        // ----------------------------------------------------------------
-        // Step 5: Process admin commands interactively for adding vehicles,
+        //5: Process admin commands interactively for adding vehicles,
         // enabling/disabling dealer acquisition.
         processAdminCommands(dealership);
     }
@@ -85,7 +84,7 @@ public class Main {
                 // Convert acquisition date from timestamp to LocalDate
                 LocalDate acquisitionDate = convertTimestampToDate(acquisitionDateLong);
 
-                // ***** STEP 4: Extract and store additional metadata *****
+                // 4: Store additional metadata
                 JSONObject metadata = new JSONObject();
                 // Iterate over all keys and add any extra keys to metadata
                 for (Object keyObj : vehicleJson.keySet()) {
@@ -159,6 +158,9 @@ public class Main {
                 Vehicle vehicle = new Vehicle(id, manu, model, date, price, type);
                 vehicle.setMetadata(metadata);
                 dealership.addVehicle(vehicle);
+
+                // Update the JSON file
+                jsonExport.exportDealershipToJson(dealership, "userEnable.json");
 
             } else if (choice.equals("2")) {
                 // Enable dealer vehicle acquisition
