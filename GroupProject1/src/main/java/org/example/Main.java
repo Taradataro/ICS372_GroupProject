@@ -1,4 +1,3 @@
-// Main.java
 package org.example;
 
 import org.json.simple.JSONArray;
@@ -34,7 +33,9 @@ public class Main {
         // Print the current vehicles again
         dealership.printCurrentVehicles();
 
-        // Export dealership data to JSON (includes metadata if available)
+
+
+        // Export dealership data to JSON (includes metadata )
         jsonExport.exportDealershipToJson(dealership, "userEnable.json");
 
         //5: Process admin commands interactively for adding vehicles,
@@ -158,6 +159,9 @@ public class Main {
                 Vehicle vehicle = new Vehicle(id, manu, model, date, price, type);
                 vehicle.setMetadata(metadata);
                 dealership.addVehicle(vehicle);
+
+                // Update the JSON file
+                jsonExport.exportDealershipToJson(dealership, "userEnable.json");
 
             } else if (choice.equals("2")) {
                 // Enable dealer vehicle acquisition
