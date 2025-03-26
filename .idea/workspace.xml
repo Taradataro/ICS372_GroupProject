@@ -4,7 +4,47 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05919fd2-dd7c-45bb-a39b-1eb96e13cc21" name="Changes" comment="Merge remote-tracking branch 'origin/main'" />
+    <list default="true" id="05919fd2-dd7c-45bb-a39b-1eb96e13cc21" name="Changes" comment="add dealership-application">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/._dealership-application" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/._.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/._.idea" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/._.mvn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/._dealershipsData.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/._mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/._mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/._pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/._src" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/.idea/._.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/.idea/._compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/.idea/._encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/.idea/._jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/.idea/._misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/.idea/._vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/.idea/._workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/.mvn/._wrapper" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/.mvn/wrapper/._maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/.mvn/wrapper/._maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/._main" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/._java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/._resources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/java/._module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/java/._org" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/java/org/._example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/java/org/example/._dealershipapplication" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/java/org/example/dealershipapplication/._Dealership.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/java/org/example/dealershipapplication/._DealershipController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/java/org/example/dealershipapplication/._DealershipGUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/java/org/example/dealershipapplication/._DealershipManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/java/org/example/dealershipapplication/._Vehicle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/java/org/example/dealershipapplication/._XMLImporter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/java/org/example/dealershipapplication/._jsonExport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/resources/._dealers.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/resources/._org" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/resources/org/._example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/resources/org/example/._dealershipapplication" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/resources/org/example/dealershipapplication/._dealership_gui.fxml" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +59,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -61,7 +102,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sreir/OneDrive/Desktop/ICS372_GroupProject/GroupProject2&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sreir/OneDrive/Desktop3/dealership-application&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
@@ -213,7 +254,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741754425530</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add dealership-application">
+      <option name="closed" value="true" />
+      <created>1743025070059</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1743025070059</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -230,7 +279,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="created .fxlm" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/main'" />
+    <MESSAGE value="add dealership-application" />
+    <option name="LAST_COMMIT_MESSAGE" value="add dealership-application" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/project372$run.ic" NAME="run Coverage Results" MODIFIED="1738825017082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
