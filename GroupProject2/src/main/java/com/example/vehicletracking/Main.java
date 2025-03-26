@@ -21,3 +21,4 @@ public class Main {
         new DealershipGUI(dealership);
     }
 }
+
