@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="10" style="-fx-padding: 20; -fx-background-color: #f0f0f0; -fx-font-size: 14px;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.dealershipapplication.DealershipController">
+
+    <!-- Dealer Name Label -->
+    <Label fx:id="dealerNameLabel" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Dealer: Wacky Bob’s Automall"/>
+
+    <!-- GridPane for buttons -->
+    <GridPane hgap="10" vgap="10">
+        <!-- Add Dealer -->
+        <Button onAction="#handleAddDealer" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Add Dealer" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+
+        <!-- Add Vehicle -->
+        <Button onAction="#handleAddVehicle" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Add Vehicle" GridPane.columnIndex="1" />
+
+        <!-- Loan Vehicle -->
+        <Button onAction="#handleLoanVehicle" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Loan Vehicle" GridPane.rowIndex="2" />
+
+        <!-- Return Vehicle -->
+        <Button onAction="#handleReturnVehicle" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Return Vehicle" GridPane.columnIndex="2" />
+
+        <!-- Transfer Vehicle -->
+        <Button onAction="#handleTransferVehicle" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Transfer Vehicle" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+        <!-- Enable Receiving -->
+        <Button onAction="#handleEnableReceiving" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Enable Receiving" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+
+        <!-- Disable Receiving -->
+        <Button onAction="#handleDisableReceiving" prefHeight="30.0" prefWidth="125.0" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Disable Receiving" GridPane.columnIndex="3" />
+
+        <!-- Set Dealer Name -->
+        <Button onAction="#handleSetDealerName" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Set Dealer Name" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+        <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+        </rowConstraints>
+    </GridPane>
+
+    <TableView fx:id="vehicleTable" prefHeight="300.0" prefWidth="600.0" style="-fx-background-color: #ffffff;">
+        <columns>
+            <TableColumn fx:id="vehicleTypeColumn" prefWidth="105.6" text="Type" />
+            <TableColumn fx:id="vehiclePriceColumn" prefWidth="148.0" text="Price" />
+            <TableColumn fx:id="vehicleMakeColumn" prefWidth="153.6" text="Make" />
+            <TableColumn fx:id="vehicleModelColumn" prefWidth="197.6" text="Model" />
+        </columns>
+    </TableView>
+
+</VBox>
