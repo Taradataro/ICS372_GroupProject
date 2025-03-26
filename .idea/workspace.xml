@@ -4,47 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05919fd2-dd7c-45bb-a39b-1eb96e13cc21" name="Changes" comment="add dealership-application">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/._dealership-application" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/._.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/._.idea" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/._.mvn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/._dealershipsData.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/._mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/._mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/._pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/._src" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/.idea/._.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/.idea/._compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/.idea/._encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/.idea/._jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/.idea/._misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/.idea/._vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/.idea/._workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/.mvn/._wrapper" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/.mvn/wrapper/._maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/.mvn/wrapper/._maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/._main" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/._java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/._resources" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/java/._module-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/java/._org" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/java/org/._example" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/java/org/example/._dealershipapplication" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/java/org/example/dealershipapplication/._Dealership.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/java/org/example/dealershipapplication/._DealershipController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/java/org/example/dealershipapplication/._DealershipGUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/java/org/example/dealershipapplication/._DealershipManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/java/org/example/dealershipapplication/._Vehicle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/java/org/example/dealershipapplication/._XMLImporter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/java/org/example/dealershipapplication/._jsonExport.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/resources/._dealers.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/resources/._org" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/resources/org/._example" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/resources/org/example/._dealershipapplication" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dealership-application/__MACOSX/dealership-application/src/main/resources/org/example/dealershipapplication/._dealership_gui.fxml" beforeDir="false" />
-    </list>
+    <list default="true" id="05919fd2-dd7c-45bb-a39b-1eb96e13cc21" name="Changes" comment="add dealership-application" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,7 +62,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sreir/OneDrive/Desktop3/dealership-application&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sreir/OneDrive/ICS372_GroupProject/dealership-application&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
@@ -116,6 +76,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sreir\OneDrive\ICS372_GroupProject" />
       <recent name="C:\Users\sreir\IdeaProjects\ICS372_GroupProject" />
     </key>
   </component>
@@ -201,8 +162,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Run" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Run" />
       <item itemvalue="Maven.Run" />
       <item itemvalue="Remote JVM Debug.Unnamed" />
       <item itemvalue="TestNG.Run" />
