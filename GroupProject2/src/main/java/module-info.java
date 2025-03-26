@@ -10,7 +10,10 @@ module com.example.vehicletracking {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
-
+    requires java.desktop;
+    requires json.simple;
     opens com.example.vehicletracking to javafx.fxml;
     exports com.example.vehicletracking;
+    requires org.json;
 }
+

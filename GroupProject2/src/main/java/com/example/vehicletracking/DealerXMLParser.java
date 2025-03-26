@@ -3,6 +3,7 @@ package com.example.vehicletracking;
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
 import java.io.File;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,14 +34,24 @@ public class DealerXMLParser {
                             Element vehicleElement = (Element) vehicleNode;
                             String vehicleId = vehicleElement.getAttribute("id");
                             String vehicleType = vehicleElement.getAttribute("type");
-                            String vehiclePrice = vehicleElement.getElementsByTagName("Price").item(0).getTextContent();
+
+                            // Parse price and convert it to double
+                            String vehiclePriceStr = vehicleElement.getElementsByTagName("Price").item(0).getTextContent();
+                            double vehiclePrice = Double.parseDouble(vehiclePriceStr);
+
                             String vehicleMake = vehicleElement.getElementsByTagName("Make").item(0).getTextContent();
                             String vehicleModel = vehicleElement.getElementsByTagName("Model").item(0).getTextContent();
 
-                            vehicles.add(new Vehicle(vehicleType, vehicleId, vehiclePrice, vehicleMake, vehicleModel));
+                            // Parse acquisition date (assuming it's in the format yyyy-MM-dd)
+                            String acquisitionDateStr = vehicleElement.getElementsByTagName("AcquisitionDate").item(0).getTextContent();
+                            LocalDate acquisitionDate = LocalDate.parse(acquisitionDateStr);
+
+                            // Create a new Vehicle object with all required parameters
+                            vehicles.add(new Vehicle(vehicleId, vehicleMake, vehicleModel, acquisitionDate, vehiclePrice, vehicleType));
                         }
                     }
 
+                    // Create a new Dealer object and add it to the list
                     dealers.add(new Dealer(dealerName, dealerId, vehicles));
                 }
             }
