@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05919fd2-dd7c-45bb-a39b-1eb96e13cc21" name="Changes" comment="Merge remote-tracking branch 'origin/main'">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="05919fd2-dd7c-45bb-a39b-1eb96e13cc21" name="Changes" comment="Merge remote-tracking branch 'origin/main'" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -80,7 +78,7 @@
       <recent name="C:\Users\sreir\IdeaProjects\ICS372_GroupProject" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Run">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GroupProject1.src.main.java.org.example.Main" />
       <module name="project372" />
