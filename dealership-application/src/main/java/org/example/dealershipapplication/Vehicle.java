@@ -3,12 +3,12 @@ package org.example.dealershipapplication;
 import java.time.LocalDate;
 
 public class Vehicle {
-    private String id;
-    private String make;
-    private String model;
-    private LocalDate acquisitionDate;
-    private double price;
-    private String type;
+    private final String id;
+    private final String make;
+    private final String model;
+    private final LocalDate acquisitionDate;
+    private final double price;
+    private final String type;
     private boolean loaned;
 
     public Vehicle(String id, String make, String model,

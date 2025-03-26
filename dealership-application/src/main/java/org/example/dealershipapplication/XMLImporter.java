@@ -26,7 +26,7 @@ public class XMLImporter {
 
                 // Get or assign a fallback Dealer ID
                 String dealerId = dealerElem.getAttribute("id");
-                if (dealerId == null || dealerId.isBlank()) {
+                if (dealerId.isBlank()) {
                     dealerId = "UNKNOWN-" + i;
                 }
 

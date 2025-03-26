@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Dealership {
-    private String id;
+    private final String id;
     private String name;
     private boolean receivingEnabled;
-    private List<Vehicle> vehicles;
+    private final List<Vehicle> vehicles;
 
     public Dealership(String id, boolean receivingEnabled) {
         this.id = id;

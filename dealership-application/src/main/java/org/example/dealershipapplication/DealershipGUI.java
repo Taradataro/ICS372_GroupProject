@@ -18,9 +18,6 @@ public class DealershipGUI extends Application {
             // Create or load a manager (loading JSON first as before)
             DealershipManager manager = jsonExport.loadAllDealers("dealershipsData.json");
 
-            // Alternatively, you can import data from an XML file:
-            // Uncomment the next line to import from XML as well
-            XMLImporter.importFromXML("path/to/your/file.xml", manager);  // Ensure the path is correct
 
             // If no dealers were loaded, manager is empty. You can add default dealers if desired.
             if (manager.getAllDealerships().isEmpty()) {

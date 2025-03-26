@@ -1,6 +1,5 @@
 package org.example.dealershipapplication;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextInputDialog;
@@ -39,18 +38,18 @@ public class DealershipController {
     @FXML
     private TableColumn<Vehicle, String> vehicleModelColumn;
 
-    private ObservableList<Vehicle> vehicleList = FXCollections.observableArrayList();
+    private final ObservableList<Vehicle> vehicleList = FXCollections.observableArrayList();
 
     public void setDealershipManager(DealershipManager manager) {
         this.manager = manager;
-        loadVehicleData("Dealer.xml");
+        loadVehicleData();
     }
 
     // Method to load vehicle data from XML file
-    private void loadVehicleData(String fileName) {
+    private void loadVehicleData() {
         try {
             // Load XML file
-            Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File(fileName));
+            Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File("Dealer.xml"));
             doc.getDocumentElement().normalize();
 
             NodeList dealerNodes = doc.getElementsByTagName("Dealer");
@@ -75,7 +74,7 @@ public class DealershipController {
                             String model = vehicleElement.getElementsByTagName("Model").item(0).getTextContent();
 
                             // Parse the price as a double
-                            double price = 0;
+                            double price;
                             try {
                                 price = Double.parseDouble(priceStr);
                             } catch (NumberFormatException e) {
@@ -109,22 +108,20 @@ public class DealershipController {
     }
 
     @FXML
-    private void handleAddDealer(ActionEvent event) {
-        showInputDialog("Add Dealer", "Enter Dealer ID:", dealerId -> {
-            showInputDialog("Add Dealer", "Enter Dealer Name:", dealerName -> {
-                Dealership newDealer = new Dealership(dealerId, true);
-                newDealer.setDealerName(dealerName);
-                manager.addDealership(newDealer);
+    private void handleAddDealer() {
+        showInputDialog("Add Dealer", "Enter Dealer ID:", dealerId -> showInputDialog("Add Dealer", "Enter Dealer Name:", dealerName -> {
+            Dealership newDealer = new Dealership(dealerId, true);
+            newDealer.setDealerName(dealerName);
+            manager.addDealership(newDealer);
 
-                jsonExport.exportAllDealers(manager, "dealershipsData.json");
-                showAlert("Dealer Created",
-                        "Dealer '" + dealerName + "' (ID: " + dealerId + ") was added.");
-            });
-        });
+            jsonExport.exportAllDealers(manager, "dealershipsData.json");
+            showAlert("Dealer Created",
+                    "Dealer '" + dealerName + "' (ID: " + dealerId + ") was added.");
+        }));
     }
 
     @FXML
-    private void handleAddVehicle(ActionEvent event) {
+    private void handleAddVehicle() {
         // First, ask for which dealer
         showInputDialog("Add Vehicle", "Enter Dealer ID:", dealerId -> {
             Optional<Dealership> dealerOpt = manager.getDealershipById(dealerId);
@@ -135,7 +132,7 @@ public class DealershipController {
             Dealership dealership = dealerOpt.get();
 
             // Now show vehicle details dialog
-            showVehicleDialog("Add Vehicle", vehicle -> {
+            showVehicleDialog(vehicle -> {
                 dealership.addVehicle(vehicle);
                 jsonExport.exportAllDealers(manager, "dealershipsData.json");
                 showAlert("Vehicle Added", "New vehicle added for dealer ID: " + dealerId);
@@ -144,7 +141,7 @@ public class DealershipController {
     }
 
     @FXML
-    private void handleLoanVehicle(ActionEvent event) {
+    private void handleLoanVehicle() {
         // Prompt for Dealer ID and Vehicle ID
         showInputDialog("Loan Vehicle", "Enter Dealer ID:", dealerId -> {
             Optional<Dealership> dealerOpt = manager.getDealershipById(dealerId);
@@ -163,7 +160,7 @@ public class DealershipController {
     }
 
     @FXML
-    private void handleReturnVehicle(ActionEvent event) {
+    private void handleReturnVehicle() {
         showInputDialog("Return Vehicle", "Enter Dealer ID:", dealerId -> {
             Optional<Dealership> dealerOpt = manager.getDealershipById(dealerId);
             if (dealerOpt.isEmpty()) {
@@ -181,39 +178,22 @@ public class DealershipController {
     }
 
     @FXML
-    private void handleTransferVehicle(ActionEvent event) {
-        showInputDialog("Transfer Vehicle", "Enter FROM Dealer ID:", fromId -> {
-            showInputDialog("Transfer Vehicle", "Enter TO Dealer ID:", toId -> {
-                showInputDialog("Transfer Vehicle", "Enter Vehicle ID:", vehicleId -> {
-                    boolean success = manager.transferVehicle(vehicleId, fromId, toId);
-                    if (success) {
-                        jsonExport.exportAllDealers(manager, "dealershipsData.json");
-                        showAlert("Transfer Success",
-                                "Vehicle " + vehicleId + " transferred from " + fromId + " to " + toId);
-                    } else {
-                        showAlert("Transfer Failed",
-                                "Could not transfer vehicle. Check IDs or receiving status.");
-                    }
-                });
-            });
-        });
-    }
-
-    @FXML
-    private void handlePrintInventory(ActionEvent event) {
-        showInputDialog("Print Inventory", "Enter Dealer ID:", dealerId -> {
-            Optional<Dealership> dealerOpt = manager.getDealershipById(dealerId);
-            if (dealerOpt.isPresent()) {
-                dealerOpt.get().printCurrentVehicles();
-                showAlert("Inventory Printed", "See console for details of dealer " + dealerId);
+    private void handleTransferVehicle() {
+        showInputDialog("Transfer Vehicle", "Enter FROM Dealer ID:", fromId -> showInputDialog("Transfer Vehicle", "Enter TO Dealer ID:", toId -> showInputDialog("Transfer Vehicle", "Enter Vehicle ID:", vehicleId -> {
+            boolean success = manager.transferVehicle(vehicleId, fromId, toId);
+            if (success) {
+                jsonExport.exportAllDealers(manager, "dealershipsData.json");
+                showAlert("Transfer Success",
+                        "Vehicle " + vehicleId + " transferred from " + fromId + " to " + toId);
             } else {
-                showAlert("Error", "No dealer found with ID: " + dealerId);
+                showAlert("Transfer Failed",
+                        "Could not transfer vehicle. Check IDs or receiving status.");
             }
-        });
+        })));
     }
 
     @FXML
-    private void handleEnableReceiving(ActionEvent event) {
+    private void handleEnableReceiving() {
         showInputDialog("Enable Receiving", "Enter Dealer ID:", dealerId -> {
             Optional<Dealership> dealerOpt = manager.getDealershipById(dealerId);
             if (dealerOpt.isPresent()) {
@@ -227,7 +207,7 @@ public class DealershipController {
     }
 
     @FXML
-    private void handleDisableReceiving(ActionEvent event) {
+    private void handleDisableReceiving() {
         showInputDialog("Disable Receiving", "Enter Dealer ID:", dealerId -> {
             Optional<Dealership> dealerOpt = manager.getDealershipById(dealerId);
             if (dealerOpt.isPresent()) {
@@ -241,7 +221,7 @@ public class DealershipController {
     }
 
     @FXML
-    private void handleSetDealerName(ActionEvent event) {
+    private void handleSetDealerName() {
         showInputDialog("Set Dealer Name", "Enter Dealer ID:", dealerId -> {
             Optional<Dealership> dealerOpt = manager.getDealershipById(dealerId);
             if (dealerOpt.isEmpty()) {
@@ -258,19 +238,13 @@ public class DealershipController {
         });
     }
 
-    @FXML
-    private void handleExit(ActionEvent event) {
-        jsonExport.exportAllDealers(manager, "dealershipsData.json");
-        System.exit(0);
-    }
-
     // --------------------------------------------------------------------------------
     // Helper methods for dialogs
     // --------------------------------------------------------------------------------
 
-    private void showVehicleDialog(String title, VehicleHandler handler) {
+    private void showVehicleDialog(VehicleHandler handler) {
         javafx.scene.control.Dialog<Vehicle> dialog = new javafx.scene.control.Dialog<>();
-        dialog.setTitle(title);
+        dialog.setTitle("Add Vehicle");
 
         javafx.scene.control.Label lblId = new javafx.scene.control.Label("Vehicle ID:");
         javafx.scene.control.TextField txtId = new javafx.scene.control.TextField();
