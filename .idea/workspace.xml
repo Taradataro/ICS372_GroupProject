@@ -4,33 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05919fd2-dd7c-45bb-a39b-1eb96e13cc21" name="Changes" comment="Merge remote-tracking branch 'origin/main'">
-      <change afterPath="$PROJECT_DIR$/Dealership-app/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dealership-app/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dealership-app/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dealership-app/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dealership-app/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dealership-app/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dealership-app/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dealership-app/Dealer.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dealership-app/dealershipsData.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dealership-app/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dealership-app/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dealership-app/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dealership-app/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dealership-app/src/main/java/org/example/dealershipapplication/--Dealership Software Application Sequence Diagram.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dealership-app/src/main/java/org/example/dealershipapplication/Dealership.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dealership-app/src/main/java/org/example/dealershipapplication/DealershipController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dealership-app/src/main/java/org/example/dealershipapplication/DealershipGUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dealership-app/src/main/java/org/example/dealershipapplication/DealershipManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dealership-app/src/main/java/org/example/dealershipapplication/Vehicle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dealership-app/src/main/java/org/example/dealershipapplication/XMLImporter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dealership-app/src/main/java/org/example/dealershipapplication/jsonExport.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dealership-app/src/main/resources/Dealers.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dealership-app/src/main/resources/com/example/vehicletracking/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dealership-app/src/main/resources/com/example/vehicletracking/vehicleTracking.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dealership-app/src/main/resources/org/example/dealershipapplication/dealership_gui.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="05919fd2-dd7c-45bb-a39b-1eb96e13cc21" name="Changes" comment="Merge remote-tracking branch 'origin/main'" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,7 +63,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/sreir/OneDrive/Desktop/tgit/dealership-application",
+    "last_opened_file_path": "C:/Users/sreir/OneDrive/Desktop/gp2/Dealership-app",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
