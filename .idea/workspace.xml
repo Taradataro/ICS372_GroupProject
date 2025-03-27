@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05919fd2-dd7c-45bb-a39b-1eb96e13cc21" name="Changes" comment="add dealership-application">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="05919fd2-dd7c-45bb-a39b-1eb96e13cc21" name="Changes" comment="testing" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -244,7 +241,55 @@
       <option name="project" value="LOCAL" />
       <updated>1743028583349</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Merge branch 'main' of https://github.com/Taradataro/ICS372_GroupProject">
+      <option name="closed" value="true" />
+      <created>1743116535503</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1743116535503</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Merge branch 'main' of https://github.com/Taradataro/ICS372_GroupProject">
+      <option name="closed" value="true" />
+      <created>1743116559796</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1743116559796</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Merge branch 'main' of https://github.com/Taradataro/ICS372_GroupProject">
+      <option name="closed" value="true" />
+      <created>1743116605147</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1743116605147</updated>
+    </task>
+    <task id="LOCAL-00011" summary="testing">
+      <option name="closed" value="true" />
+      <created>1743116750987</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1743116750987</updated>
+    </task>
+    <task id="LOCAL-00012" summary="testing">
+      <option name="closed" value="true" />
+      <created>1743116804114</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1743116804114</updated>
+    </task>
+    <task id="LOCAL-00013" summary="testing">
+      <option name="closed" value="true" />
+      <created>1743117457580</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1743117457580</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -262,7 +307,9 @@
     <MESSAGE value="created .fxlm" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
     <MESSAGE value="add dealership-application" />
-    <option name="LAST_COMMIT_MESSAGE" value="add dealership-application" />
+    <MESSAGE value="Merge branch 'main' of https://github.com/Taradataro/ICS372_GroupProject" />
+    <MESSAGE value="testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="testing" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/project372$run.ic" NAME="run Coverage Results" MODIFIED="1738825017082" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
