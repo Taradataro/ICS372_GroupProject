@@ -5,31 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05919fd2-dd7c-45bb-a39b-1eb96e13cc21" name="Changes" comment="add dealership-application">
-      <change afterPath="$PROJECT_DIR$/GroupProject2T/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GroupProject2T/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GroupProject2T/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GroupProject2T/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GroupProject2T/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GroupProject2T/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GroupProject2T/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GroupProject2T/Dealer.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GroupProject2T/dealershipsData.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GroupProject2T/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GroupProject2T/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GroupProject2T/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GroupProject2T/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GroupProject2T/src/main/java/org/example/dealershipapplication/--Dealership Software Application Sequence Diagram.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GroupProject2T/src/main/java/org/example/dealershipapplication/Dealership.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GroupProject2T/src/main/java/org/example/dealershipapplication/DealershipController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GroupProject2T/src/main/java/org/example/dealershipapplication/DealershipGUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GroupProject2T/src/main/java/org/example/dealershipapplication/DealershipManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GroupProject2T/src/main/java/org/example/dealershipapplication/Vehicle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GroupProject2T/src/main/java/org/example/dealershipapplication/XMLImporter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GroupProject2T/src/main/java/org/example/dealershipapplication/jsonExport.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GroupProject2T/src/main/resources/Dealers.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GroupProject2T/src/main/resources/com/example/vehicletracking/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GroupProject2T/src/main/resources/com/example/vehicletracking/vehicleTracking.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GroupProject2T/src/main/resources/org/example/dealershipapplication/dealership_gui.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +66,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sreir/OneDrive/Desktop/project372/ICS372_GroupProject&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sreir/OneDrive/Desktop/git/GroupProject2&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
