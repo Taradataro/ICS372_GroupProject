@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05919fd2-dd7c-45bb-a39b-1eb96e13cc21" name="Changes" comment="add dealership-application">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,7 +20,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/GroupProject2" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -63,10 +62,10 @@
     "RunOnceActivity.git.unshallow": "true",
     "Shell Script.Unnamed.executor": "Run",
     "TestNG.Run.executor": "Run",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/sreir/OneDrive/Desktop/project372/ICS372_GroupProject",
+    "last_opened_file_path": "C:/Users/sreir/OneDrive/Desktop/gitproject/GroupProject2",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -167,8 +166,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
       <item itemvalue="Application.Run" />
+      <item itemvalue="Application.Main" />
       <item itemvalue="Maven.Run" />
       <item itemvalue="Remote JVM Debug.Unnamed" />
       <item itemvalue="TestNG.Run" />
