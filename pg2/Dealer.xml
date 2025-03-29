@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Dealers>
+    <Dealer>
+        <Name>Wacky Bob’s Automall</Name>
+        <Vehicle id="848432" type="suv">
+            <Price>17000</Price>
+            <Make>Land Rover</Make>
+            <Model>Range Rover</Model>
+        </Vehicle>
+        <Vehicle id="52523" type="pickup">
+            <Price>22600</Price>
+            <Make>Toyota</Make>
+            <Model>Tundra</Model>
+        </Vehicle>
+        <Vehicle id="151e5dde" type="sedan">
+            <Price>36600</Price>
+            <Make>Genesis</Make>
+            <Model>G70</Model>
+        </Vehicle>
+        <Vehicle id="ern222" type="sports car">
+            <Price>22330</Price>
+            <Make>Mazda</Make>
+            <Model>Miata</Model>
+        </Vehicle>
+    </Dealer>
+</Dealers>
