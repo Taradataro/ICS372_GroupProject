@@ -117,6 +117,7 @@ public class VehicleTrackingController {
                         // Add the new vehicle to the dealer and the table
                         currentDealer.addVehicle(newVehicle);
                         vehicleTable.getItems().add(newVehicle);
+                        saveChanges();
                     });
                 });
             });
