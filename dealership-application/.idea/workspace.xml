@@ -2,22 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52a0d394-bd15-4164-9b7c-75a58a71d645" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../GroupProject2/src/main/java/com/example/vehicletracking/DealershipController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../GroupProject2/src/main/java/com/example/vehicletracking/DealershipManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GroupProject2/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GroupProject2/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GroupProject2/Dealer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GroupProject2/Dealer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GroupProject2/dealershipsData.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../GroupProject2/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GroupProject2/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GroupProject2/src/main/java/com/example/vehicletracking/Dealer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GroupProject2/src/main/java/com/example/vehicletracking/DealerXMLParser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GroupProject2/src/main/java/com/example/vehicletracking/Dealership.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GroupProject2/src/main/java/com/example/vehicletracking/Dealership.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GroupProject2/src/main/java/com/example/vehicletracking/DealershipGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GroupProject2/src/main/java/com/example/vehicletracking/DealershipGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GroupProject2/src/main/java/com/example/vehicletracking/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GroupProject2/src/main/java/com/example/vehicletracking/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GroupProject2/src/main/java/com/example/vehicletracking/Vehicle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GroupProject2/src/main/java/com/example/vehicletracking/XMLImporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GroupProject2/src/main/java/com/example/vehicletracking/XMLImporter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GroupProject2/src/main/java/com/example/vehicletracking/jsonExport.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GroupProject2/src/main/java/com/example/vehicletracking/jsonExport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GroupProject2/src/main/java/com/example/vehicletracking/vehicleTrackingApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GroupProject2/src/main/java/com/example/vehicletracking/vehicleTrackingController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../GroupProject2/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/../GroupProject2/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GroupProject2/src/main/resources/com/example/vehicletracking/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../GroupProject2/src/main/resources/com/example/vehicletracking/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../GroupProject2/src/main/resources/com/example/vehicletracking/vehicleTracking.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../GroupProject2/src/main/resources/com/example/vehicletracking/vehicleTracking.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GroupProject2/src/main/java/org/example/dealershipapplication/--Dealership Software Application Sequence Diagram.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GroupProject2/src/main/java/org/example/dealershipapplication/Dealership.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GroupProject2/src/main/java/org/example/dealershipapplication/DealershipController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GroupProject2/src/main/java/org/example/dealershipapplication/DealershipGUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GroupProject2/src/main/java/org/example/dealershipapplication/DealershipManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GroupProject2/src/main/java/org/example/dealershipapplication/Vehicle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GroupProject2/src/main/java/org/example/dealershipapplication/XMLImporter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GroupProject2/src/main/java/org/example/dealershipapplication/jsonExport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GroupProject2/src/main/resources/Dealers.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GroupProject2/src/main/resources/com/example/vehicletracking/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GroupProject2/src/main/resources/com/example/vehicletracking/vehicleTracking.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GroupProject2/src/main/resources/org/example/dealershipapplication/dealership_gui.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,35 +28,35 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Taradataro"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Taradataro&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Taradataro/ICS372_GroupProject.git",
-    "accountId": "b0a8cae6-3087-4477-96fa-ba0344b45474"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Taradataro/ICS372_GroupProject.git&quot;,
+    &quot;accountId&quot;: &quot;b0a8cae6-3087-4477-96fa-ba0344b45474&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2us8JUCw28xlBA9rX80VGTHfERf" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/taranguyen/ICS372_GroupProject/dealership-application"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/taranguyen/ICS372_GroupProject/dealership-application&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
