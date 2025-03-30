@@ -1,9 +1,24 @@
-module org.example.dealershipapplication {
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
+module com.example.vehicletracking {
     requires javafx.controls;
     requires javafx.fxml;
-    requires java.xml;
-    requires json.simple;
+    requires javafx.web;
+    requires org.controlsfx.controls;
+    requires com.dlsc.formsfx;
+    requires net.synedra.validatorfx;
+    requires org.kordamp.ikonli.javafx;
+    requires org.kordamp.bootstrapfx.core;
+    requires eu.hansolo.tilesfx;
+    requires com.almasb.fxgl.all;
+    requires com.fasterxml.jackson.databind;
+    requires org.json;
 
-    opens org.example.dealershipapplication to javafx.fxml;
-    exports org.example.dealershipapplication;
+    exports com.example.vehicletracking;
+
+    opens com.example.vehicletracking to
+            javafx.fxml;
 }

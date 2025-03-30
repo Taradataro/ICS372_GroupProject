@@ -1,0 +1,30 @@
+{"car_inventory": [
+  {
+    "price": 22330,
+    "vehicle_model": "Miata",
+    "vehicle_type": "sports car",
+    "vehicle_id": "ern222",
+    "vehicle_manufacturer": "Mazda"
+  },
+  {
+    "price": 36600,
+    "vehicle_model": "G70",
+    "vehicle_type": "sedan",
+    "vehicle_id": "151e5dde",
+    "vehicle_manufacturer": "Genesis"
+  },
+  {
+    "price": 17000,
+    "vehicle_model": "Range Rover",
+    "vehicle_type": "suv",
+    "vehicle_id": "848432",
+    "vehicle_manufacturer": "Land Rover"
+  },
+  {
+    "price": 22600,
+    "vehicle_model": "Tundra",
+    "vehicle_type": "pickup",
+    "vehicle_id": "52523",
+    "vehicle_manufacturer": "Toyota"
+  }
+]}

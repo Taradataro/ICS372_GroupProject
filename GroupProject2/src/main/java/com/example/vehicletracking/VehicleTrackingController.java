@@ -9,10 +9,10 @@ import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
 
 public class VehicleTrackingController {
 
@@ -197,11 +197,7 @@ public class VehicleTrackingController {
         }
     }
 
-<<<<<<< HEAD
     private void saveChanges() {
-=======
-     private void saveChanges() {
->>>>>>> 28166ac983b705b3c70d5b0d71f72ba5d48077e9
         // Save all dealers to XML
         xmlParser.saveDealerXML("Dealer.xml", dealers);
 
@@ -211,11 +207,6 @@ public class VehicleTrackingController {
                 .collect(Collectors.toList());
         jsonParser.saveToInfJson(allVehicles, "inf.json");
     }
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 28166ac983b705b3c70d5b0d71f72ba5d48077e9
     private Dealer getTargetDealer() {
         // Simple logic to find the other dealer
         if (dealers.size() > 1) {
