@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05919fd2-dd7c-45bb-a39b-1eb96e13cc21" name="Changes" comment="Merge remote-tracking branch 'origin/main'">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pg2/Dealer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pg2/Dealer.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pg2/inf.json" beforeDir="false" afterPath="$PROJECT_DIR$/pg2/inf.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pg2/src/main/java/com/example/vehicletracking/VehicleTrackingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pg2/src/main/java/com/example/vehicletracking/VehicleTrackingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pg2/src/main/java/com/example/vehicletracking/vehicleTrackingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/pg2/src/main/java/com/example/vehicletracking/vehicleTrackingApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pg2/src/main/resources/com/example/vehicletracking/vehicleTracking.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/pg2/src/main/resources/com/example/vehicletracking/vehicleTracking.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,12 +30,12 @@
     &quot;assignee&quot;: &quot;Taradataro&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Taradataro/ICS372_GroupProject.git&quot;,
-    &quot;accountId&quot;: &quot;29ac7762-6ba0-4dd3-9c6d-8e66f585af5c&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Taradataro/ICS372_GroupProject.git",
+    "accountId": "b0a8cae6-3087-4477-96fa-ba0344b45474"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -49,40 +45,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main class.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.Run.executor": "Run",
-    "Application.Unnamed (1).executor": "Run",
-    "Application.Unnamed.executor": "Run",
-    "Application.jdk.jpackage.main.Main.executor": "Run",
-    "Application.run.executor": "Coverage",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "JAR Application.Unnamed.executor": "Run",
-    "Java Scratch.Run.executor": "Run",
-    "Maven.Run.executor": "Run",
-    "Maven.Unnamed.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Shell Script.Unnamed.executor": "Run",
-    "TestNG.Run.executor": "Run",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/sreir/OneDrive/Desktop/ICS372_GroupProject/pg2",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main class.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Run.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Unnamed (1).executor&quot;: &quot;Run&quot;,
+    &quot;Application.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Application.jdk.jpackage.main.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.run.executor&quot;: &quot;Coverage&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JAR Application.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Java Scratch.Run.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Run.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Shell Script.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.Run.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sreir/OneDrive/Desktop/ICS372_GroupProject/pg2&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "PLAIN_TEXT",
-      "JavaFX"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;PLAIN_TEXT&quot;,
+      &quot;JavaFX&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\sreir\OneDrive\ICS372_GroupProject" />
@@ -171,8 +167,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Run" />
       <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Run" />
       <item itemvalue="Maven.Run" />
       <item itemvalue="Remote JVM Debug.Unnamed" />
       <item itemvalue="TestNG.Run" />
