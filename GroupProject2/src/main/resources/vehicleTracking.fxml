@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="417.0" prefWidth="668.0" spacing="10" style="-fx-background-color: turquoise;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vehicletracking.VehicleTrackingController">
+    <Label fx:id="dealerNameLabel" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-background-color: red;" text="Dealer Name">
+      <font>
+         <Font name="Arial Bold" size="13.0" />
+      </font></Label>
+    <ButtonBar prefHeight="40.0" prefWidth="200.0">
+        <buttons>
+            <Button onAction="#handleReturnVehicle" style="-fx-background-color: yellow;" text="Return Vehicle">
+            <font>
+               <Font name="Arial" size="13.0" />
+            </font></Button>
+            <Button onAction="#handleTransferVehicle" style="-fx-background-color: yellow;" text="Transfer Vehicle">
+            <font>
+               <Font name="Arial" size="13.0" />
+            </font></Button>
+            <Button onAction="#handleSwitchDataSource" style="-fx-background-color: yellow;" text="Switch Dealer">
+            <font>
+               <Font name="Arial" size="13.0" />
+            </font></Button>
+            <Button onAction="#handleAddVehicle" style="-fx-background-color: yellow;" text="Add Vehicle">
+            <font>
+               <Font name="Arial" size="13.0" />
+            </font></Button>
+            <Button minWidth="66.0" onAction="#handleloanVehicle" prefHeight="22.0" style="-fx-background-color: yellow;" text="Loan">
+            <font>
+               <Font name="Arial" size="13.0" />
+            </font></Button>
+        </buttons>
+    </ButtonBar>
+    <TableView fx:id="vehicleTable" prefHeight="300.0" prefWidth="600.0">
+        <columns>
+            <TableColumn fx:id="vehicleTypeColumn" onEditStart="#handleAddVehicle" prefWidth="105.6" text="Type" />
+            <TableColumn fx:id="vehiclePriceColumn" prefWidth="148.0" text="Price" />
+            <TableColumn fx:id="vehicleMakeColumn" prefWidth="131.1999969482422" text="Make" />
+            <TableColumn fx:id="vehicleModelColumn" prefWidth="148.79998779296875" text="Model" />
+            <TableColumn fx:id="vehicleStatusColumn" prefWidth="158.4000244140625" text="Status" />
+        </columns>
+    </TableView>
+</VBox>
