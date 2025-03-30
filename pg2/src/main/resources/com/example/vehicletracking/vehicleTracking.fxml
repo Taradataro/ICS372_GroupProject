@@ -7,24 +7,44 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="417.0" prefWidth="668.0" spacing="10" style="-fx-background-color: turquoise;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vehicletracking.VehicleTrackingController">
-    <Label fx:id="dealerNameLabel" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-background-color: red;" text="Dealer Name" />
+<VBox alignment="CENTER" spacing="10" prefHeight="417.0" prefWidth="668.0"
+      style="-fx-background-color: turquoise; -fx-padding: 20;"
+      xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.vehicletracking.VehicleTrackingController">
+    <Label fx:id="dealerNameLabel"
+           style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-background-color: red;"
+           text="Dealer Name" />
     <ButtonBar prefHeight="40.0" prefWidth="200.0">
         <buttons>
-            <Button onAction="#handleReturnVehicle" style="-fx-background-color: yellow;" text="Return Vehicle" />
-            <Button onAction="#handleTransferVehicle" style="-fx-background-color: yellow;" text="Transfer Vehicle" />
-            <Button onAction="#handleSwitchDataSource" style="-fx-background-color: yellow;" text="Switch Dealer" />
-         <Button onAction="#handleAddVehicle" style="-fx-background-color: yellow;" text="Add Vehicle" />
-         <Button minWidth="66.0" onAction="#handleloanVehicle" prefHeight="22.0" style="-fx-background-color: yellow;" text="Loan" />
+            <Button onAction="#handleReturnVehicle"
+                    style="-fx-background-color: yellow; -fx-font-size: 14px;"
+                    text="Return Vehicle" />
+            <Button onAction="#handleTransferVehicle"
+                    style="-fx-background-color: yellow; -fx-font-size: 14px;"
+                    text="Transfer Vehicle" />
+            <Button onAction="#handleSwitchDataSource"
+                    style="-fx-background-color: yellow; -fx-font-size: 14px;"
+                    text="Switch Dealer" />
+            <Button onAction="#handleAddVehicle"
+                    style="-fx-background-color: yellow; -fx-font-size: 14px;"
+                    text="Add Vehicle" />
+            <Button minWidth="66.0" onAction="#handleloanVehicle" prefHeight="22.0"
+                    style="-fx-background-color: yellow; -fx-font-size: 14px;"
+                    text="Loan" />
         </buttons>
     </ButtonBar>
     <TableView fx:id="vehicleTable" prefHeight="300.0" prefWidth="600.0">
         <columns>
-            <TableColumn fx:id="vehicleTypeColumn" onEditStart="#handleAddVehicle" prefWidth="105.6" text="Type" />
-            <TableColumn fx:id="vehiclePriceColumn" prefWidth="148.0" text="Price" />
-            <TableColumn fx:id="vehicleMakeColumn" prefWidth="131.1999969482422" text="Make" />
-            <TableColumn fx:id="vehicleModelColumn" prefWidth="148.79998779296875" text="Model" />
-            <TableColumn fx:id="vehicleStatusColumn" prefWidth="158.4000244140625" text="Status" />
+            <TableColumn fx:id="vehicleTypeColumn" onEditStart="#handleAddVehicle"
+                         prefWidth="105.6" text="Type" />
+            <TableColumn fx:id="vehiclePriceColumn"
+                         prefWidth="148.0" text="Price" />
+            <TableColumn fx:id="vehicleMakeColumn"
+                         prefWidth="131.2" text="Make" />
+            <TableColumn fx:id="vehicleModelColumn"
+                         prefWidth="148.8" text="Model" />
+            <TableColumn fx:id="vehicleStatusColumn"
+                         prefWidth="158.4" text="Status" />
         </columns>
     </TableView>
 </VBox>

@@ -22,5 +22,33 @@
             <Make>Mazda</Make>
             <Model>Miata</Model>
         </Vehicle>
+        <Vehicle id="48934j" type="suv">
+            <Price>20123</Price>
+            <Make>Ford</Make>
+            <Model>Explorer</Model>
+        </Vehicle>
+        <Vehicle id="V1005" type="v">
+            <Price>4000</Price>
+            <Make>suv</Make>
+            <Model>Sedan</Model>
+        </Vehicle>
+        <Vehicle id="V1006" type="g">
+            <Price>66</Price>
+            <Make>hhh</Make>
+            <Model>sedan</Model>
+        </Vehicle>
+        <Vehicle id="V1007" type="suv">
+            <Price>20</Price>
+            <Make>Buick</Make>
+            <Model>Encore</Model>
+        </Vehicle>
+    </Dealer>
+    <Dealer>
+        <Name>google</Name>
+        <Vehicle id="V1000" type="v">
+            <Price>333</Price>
+            <Make>sedan</Make>
+            <Model>sedan</Model>
+        </Vehicle>
     </Dealer>
 </Dealers>

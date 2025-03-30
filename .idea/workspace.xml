@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05919fd2-dd7c-45bb-a39b-1eb96e13cc21" name="Changes" comment="Merge remote-tracking branch 'origin/main'" />
+    <list default="true" id="05919fd2-dd7c-45bb-a39b-1eb96e13cc21" name="Changes" comment="Merge remote-tracking branch 'origin/main'">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pg2/Dealer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pg2/Dealer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pg2/inf.json" beforeDir="false" afterPath="$PROJECT_DIR$/pg2/inf.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pg2/src/main/java/com/example/vehicletracking/VehicleTrackingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/pg2/src/main/java/com/example/vehicletracking/VehicleTrackingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pg2/src/main/java/com/example/vehicletracking/vehicleTrackingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/pg2/src/main/java/com/example/vehicletracking/vehicleTrackingApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pg2/src/main/resources/com/example/vehicletracking/vehicleTracking.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/pg2/src/main/resources/com/example/vehicletracking/vehicleTracking.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,7 +70,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/sreir/OneDrive/Desktop/gp2/Dealership-app",
+    "last_opened_file_path": "C:/Users/sreir/OneDrive/Desktop/ICS372_GroupProject/pg2",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",

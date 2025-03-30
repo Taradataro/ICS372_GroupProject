@@ -12,6 +12,8 @@ module com.example.vehicletracking {
     requires com.almasb.fxgl.all;
     requires com.fasterxml.jackson.databind;
     requires org.json;
+    requires javafx.graphics;
+    requires javafx.base;
 
     opens com.example.vehicletracking to javafx.fxml;
     exports com.example.vehicletracking;

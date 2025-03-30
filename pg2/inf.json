@@ -1,7 +1,65 @@
-{"car_inventory": [{
-  "price": 50444,
-  "vehicle_model": "Model 3",
-  "vehicle_type": "sedan",
-  "vehicle_id": "83883",
-  "vehicle_manufacturer": "Tesla"
-}]}
+{"car_inventory": [
+  {
+    "price": 17000,
+    "vehicle_model": "Range Rover",
+    "vehicle_type": "suv",
+    "vehicle_id": "848432",
+    "vehicle_manufacturer": "Land Rover"
+  },
+  {
+    "price": 22600,
+    "vehicle_model": "Tundra",
+    "vehicle_type": "pickup",
+    "vehicle_id": "52523",
+    "vehicle_manufacturer": "Toyota"
+  },
+  {
+    "price": 36600,
+    "vehicle_model": "G70",
+    "vehicle_type": "sedan",
+    "vehicle_id": "151e5dde",
+    "vehicle_manufacturer": "Genesis"
+  },
+  {
+    "price": 22330,
+    "vehicle_model": "Miata",
+    "vehicle_type": "sports car",
+    "vehicle_id": "ern222",
+    "vehicle_manufacturer": "Mazda"
+  },
+  {
+    "price": 20123,
+    "vehicle_model": "Explorer",
+    "vehicle_type": "suv",
+    "vehicle_id": "48934j",
+    "vehicle_manufacturer": "Ford"
+  },
+  {
+    "price": 4000,
+    "vehicle_model": "Sedan",
+    "vehicle_type": "v",
+    "vehicle_id": "V1005",
+    "vehicle_manufacturer": "suv"
+  },
+  {
+    "price": 66,
+    "vehicle_model": "sedan",
+    "vehicle_type": "g",
+    "vehicle_id": "V1006",
+    "vehicle_manufacturer": "hhh"
+  },
+  {
+    "price": 20,
+    "vehicle_model": "Encore",
+    "vehicle_type": "suv",
+    "vehicle_id": "V1007",
+    "vehicle_manufacturer": "Buick"
+  },
+  {
+    "price": 333,
+    "vehicle_model": "sedan",
+    "vehicle_type": "v",
+    "vehicle_id": "V1000",
+    "vehicle_manufacturer": "sedan"
+  }
+]}
