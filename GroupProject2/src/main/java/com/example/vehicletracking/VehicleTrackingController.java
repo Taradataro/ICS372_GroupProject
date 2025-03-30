@@ -117,6 +117,7 @@ public class VehicleTrackingController {
                         // Add the new vehicle to the dealer and the table
                         currentDealer.addVehicle(newVehicle);
                         vehicleTable.getItems().add(newVehicle);
+                        saveChanges();
                     });
                 });
             });
@@ -197,23 +198,15 @@ public class VehicleTrackingController {
     }
 
     private void saveChanges() {
-        // Save XML data
-        DealerXMLParser xmlParser = new DealerXMLParser();
-        xmlParser.saveDealerXML("Dealer.xml",
-                dealers.stream()
-                        .filter(d -> !d.getName().equals("JSON Dealer"))
-                        .collect(Collectors.toList()));
+        // Save all dealers to XML
+        xmlParser.saveDealerXML("Dealer.xml", dealers);
 
-        // Save JSON data
-        DealerJSONParser jsonParser = new DealerJSONParser();
-        List<Vehicle> jsonVehicles = dealers.stream()
-                .filter(d -> d.getName().equals("JSON Dealer"))
-                .flatMap(d -> d.getVehicles().stream())
+        // Save all vehicles from all dealers to JSON
+        List<Vehicle> allVehicles = dealers.stream()
+                .flatMap(dealer -> dealer.getVehicles().stream())
                 .collect(Collectors.toList());
-
-        jsonParser.saveToInfJson(jsonVehicles, "inf.json");
+        jsonParser.saveToInfJson(allVehicles, "inf.json");
     }
-
     private Dealer getTargetDealer() {
         // Simple logic to find the other dealer
         if (dealers.size() > 1) {
@@ -268,6 +261,7 @@ public class VehicleTrackingController {
         alert.setContentText("Sports cars are not available for loan at this dealership.");
         alert.showAndWait();
     }
+
     @FXML
     public void handleReturnVehicle(ActionEvent actionEvent) {
         Vehicle selected = vehicleTable.getSelectionModel().getSelectedItem();

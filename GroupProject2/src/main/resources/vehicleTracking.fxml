@@ -4,8 +4,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="417.0" prefWidth="668.0" spacing="10" style="-fx-background-color: turquoise;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vehicletracking.VehicleTrackingController">
-    <Label fx:id="dealerNameLabel" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-background-color: red;" text="Dealer Name">
+<VBox prefHeight="417.0" prefWidth="668.0" spacing="10" style="-fx-background-color: cornsilk;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vehicletracking.VehicleTrackingController">
+    <Label fx:id="dealerNameLabel" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-background-color: burlywood;" text="Dealer Name">
       <font>
          <Font name="Arial Bold" size="13.0" />
       </font></Label>
