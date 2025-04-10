@@ -42,6 +42,11 @@
             <Make>Buick</Make>
             <Model>Encore</Model>
         </Vehicle>
+        <Vehicle id="89343883" type="pickup">
+            <Price>70444</Price>
+            <Make>Chevy</Make>
+            <Model>Silverado</Model>
+        </Vehicle>
     </Dealer>
     <Dealer>
         <Name>google</Name>
@@ -49,6 +54,29 @@
             <Price>333</Price>
             <Make>sedan</Make>
             <Model>sedan</Model>
+        </Vehicle>
+    </Dealer>
+    <Dealer>
+        <Name>JSON Dealer</Name>
+        <Vehicle id="48934j" type="suv">
+            <Price>20123</Price>
+            <Make>Ford</Make>
+            <Model>Explorer</Model>
+        </Vehicle>
+        <Vehicle id="83883" type="sedan">
+            <Price>50444</Price>
+            <Make>Tesla</Make>
+            <Model>Model 3</Model>
+        </Vehicle>
+        <Vehicle id="229393" type="sports car">
+            <Price>49889</Price>
+            <Make>Toyota</Make>
+            <Model>Supra</Model>
+        </Vehicle>
+        <Vehicle id="V1004" type="Sports Car">
+            <Price>200</Price>
+            <Make>honda</Make>
+            <Model>crv</Model>
         </Vehicle>
     </Dealer>
 </Dealers>
