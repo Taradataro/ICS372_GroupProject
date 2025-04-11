@@ -1,0 +1,127 @@
+<Dealers>
+    <Dealer id="485">
+        <Name>Wacky Bob’s Automall</Name>
+        <Vehicle type="suv" id="848432">
+            <Price unit="pounds">17000</Price>
+            <Make>Land Rover</Make>
+            <Model>Range Rover</Model>
+        </Vehicle>
+        <Vehicle type="pickup" id="52523">
+            <Price unit="dollars">22600</Price>
+            <Make>Toyota</Make>
+            <Model>Tundra</Model>
+        </Vehicle>
+        <Vehicle type="sedan" id="151e5dde">
+            <Price unit="dollars">36600</Price>
+            <Make>Genesis</Make>
+            <Model>G70</Model>
+        </Vehicle>
+        <Vehicle type="sports car" id="ern222">
+            <Price unit="dollars">22330</Price>
+            <Make>Mazda</Make>
+            <Model>Miata</Model>
+        </Vehicle>
+    </Dealer>
+
+    <Dealer id="902">
+        <Name>Prime Auto Hub</Name>
+        <Vehicle type="suv" id="948392">
+            <Price unit="dollars">25000</Price>
+            <Make>Ford</Make>
+            <Model>Explorer</Model>
+        </Vehicle>
+        <Vehicle type="pickup" id="67389">
+            <Price unit="dollars">31000</Price>
+            <Make>Chevrolet</Make>
+            <Model>Silverado</Model>
+        </Vehicle>
+        <Vehicle type="sedan" id="1ac5f88">
+            <Price unit="dollars">27000</Price>
+            <Make>Honda</Make>
+            <Model>Accord</Model>
+        </Vehicle>
+        <Vehicle type="sports car" id="sp1092">
+            <Price unit="dollars">62000</Price>
+            <Make>Chevrolet</Make>
+            <Model>Corvette</Model>
+        </Vehicle>
+
+        <Vehicle type="suv" id="848432">
+            <Price unit="pounds">17000</Price>
+            <Make>Land Rover</Make>
+            <Model>Range Rover</Model>
+        </Vehicle>
+    </Dealer>
+
+    <Dealer id="784">
+        <Name>Elite Wheels</Name>
+        <Vehicle type="suv" id="501327">
+            <Price unit="dollars">35000</Price>
+            <Make>Jeep</Make>
+            <Model>Grand Cherokee</Model>
+        </Vehicle>
+        <Vehicle type="pickup" id="22983">
+            <Price unit="dollars">44000</Price>
+            <Make>RAM</Make>
+            <Model>1500</Model>
+        </Vehicle>
+        <Vehicle type="sedan" id="7483af">
+            <Price unit="dollars">19500</Price>
+            <Make>Toyota</Make>
+            <Model>Camry</Model>
+        </Vehicle>
+        <Vehicle type="sports car" id="ferr55">
+            <Price unit="dollars">85000</Price>
+            <Make>Ferrari</Make>
+            <Model>Portofino</Model>
+        </Vehicle>
+    </Dealer>
+
+    <Dealer id="665">
+        <Name>Sunrise Motors</Name>
+        <Vehicle type="suv" id="319028">
+            <Price unit="pounds">28000</Price>
+            <Make>Hyundai</Make>
+            <Model>Santa Fe</Model>
+        </Vehicle>
+        <Vehicle type="pickup" id="88294">
+            <Price unit="dollars">33000</Price>
+            <Make>Nissan</Make>
+            <Model>Titan</Model>
+        </Vehicle>
+        <Vehicle type="sedan" id="18429ab">
+            <Price unit="pounds">21000</Price>
+            <Make>Kia</Make>
+            <Model>Forte</Model>
+        </Vehicle>
+        <Vehicle type="sports car" id="bz993">
+            <Price unit="dollars">46000</Price>
+            <Make>BMW</Make>
+            <Model>Z4</Model>
+        </Vehicle>
+    </Dealer>
+
+    <Dealer id="778">
+        <Name>Galaxy Auto Center</Name>
+        <Vehicle type="suv" id="900182">
+            <Price unit="dollars">32000</Price>
+            <Make>Subaru</Make>
+            <Model>Outback</Model>
+        </Vehicle>
+        <Vehicle type="pickup" id="109384">
+            <Price unit="pounds">37000</Price>
+            <Make>Ford</Make>
+            <Model>F-150</Model>
+        </Vehicle>
+        <Vehicle type="sedan" id="aa248f">
+            <Price unit="dollars">26000</Price>
+            <Make>Tesla</Make>
+            <Model>Model 3</Model>
+        </Vehicle>
+        <Vehicle type="sports car" id="lambo9">
+            <Price unit="pounds">95000</Price>
+            <Make>Lamborghini</Make>
+            <Model>Huracán</Model>
+        </Vehicle>
+    </Dealer>
+</Dealers>
