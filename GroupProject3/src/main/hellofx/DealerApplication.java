@@ -1,3 +1,5 @@
+package org.example.hellofx;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -6,6 +8,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+
+
 import java.io.IOException;
 
 public class DealerApplication extends Application {
@@ -25,10 +29,10 @@ public class DealerApplication extends Application {
             stage.setScene(scene);
             stage.show(); // show the stage
 
-//            stage.setOnCloseRequest(windowEvent -> {
-//                windowEvent.consume();
-//                exitProgram(stage);
-//            });
+            stage.setOnCloseRequest(windowEvent -> {
+                windowEvent.consume();
+                exitProgram(stage);
+            });
         } catch(Exception e) {
             e.printStackTrace();
             System.out.println("Can't open the file");
@@ -41,7 +45,7 @@ public class DealerApplication extends Application {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Exit???");
         alert.setHeaderText("You're about to exit the app!");
-        alert.setContentText("Do you want to save before existing?");
+        alert.setContentText("Make sure you save before existing?");
 
         if (alert.showAndWait().get() == ButtonType.OK) {
             System.out.println("You're successfully logout");

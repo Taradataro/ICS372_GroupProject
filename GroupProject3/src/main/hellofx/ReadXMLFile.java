@@ -1,3 +1,5 @@
+package org.example.hellofx;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -12,9 +14,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReadXMLFile {
-    public static final String FILENAME = "src/main/resources/Dealer.xml";
-    public static List<Dealer> getDealers() {
+public class ReadXMLFile implements FileHandler{
+    public List<Dealer> getDealers(String fileName) {
         // List to store dealers
         List<Dealer> dealers = new ArrayList<>();
 
@@ -26,7 +27,7 @@ public class ReadXMLFile {
             DocumentBuilder builder = factory.newDocumentBuilder();
 
             // Parse the xml file: read the file and extract information
-            Document document =  builder.parse(new File(FILENAME));
+            Document document =  builder.parse(new File(fileName));
 
             // Create Node list to store each dealer
             NodeList dealerList = document.getElementsByTagName("Dealer");
