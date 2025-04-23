@@ -210,7 +210,7 @@ public class MainController implements Initializable {
         try {
             // Load the fxml file and create a new popup dialog
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/org/example/hellofx/VehicleDialog.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("/hellofx/VehicleDialog.fxml"));
             DialogPane vehicleDialogPane = fxmlLoader.load();
 
             // Get the vehicle controller
@@ -376,7 +376,7 @@ public class MainController implements Initializable {
         try {
             // Load the fxml file and create a new popup dialog
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/org/example/hellofx/DealerDialog.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("/hellofx/DealerDialog.fxml"));
             DialogPane vehicleDialogPane = fxmlLoader.load();
 
             // Get the vehicle controller
