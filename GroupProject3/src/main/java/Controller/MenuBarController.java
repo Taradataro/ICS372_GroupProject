@@ -13,21 +13,29 @@ import java.io.File;
 import java.util.List;
 
 public class MenuBarController {
-    Stage stage;
+    private Stage stage;
 
-    // Extension filter: filter .xml or .json file
-    FileChooser.ExtensionFilter xmlExtension = new FileChooser.ExtensionFilter("XML Files", "*.xml");
-    FileChooser.ExtensionFilter jsonExtension = new FileChooser.ExtensionFilter("JSON Files", "*.json");
-    FileChooser.ExtensionFilter allFile = new FileChooser.ExtensionFilter("All Files", "*.*");
+    // Extension filters
+    private final FileChooser.ExtensionFilter xmlExtension = new FileChooser.ExtensionFilter("XML Files", "*.xml");
+    private final FileChooser.ExtensionFilter jsonExtension = new FileChooser.ExtensionFilter("JSON Files", "*.json");
+    private final FileChooser.ExtensionFilter allFile = new FileChooser.ExtensionFilter("All Files", "*.*");
 
-    // Method for open file
+    // Set the application stage (use this method if you're setting the controller manually or via FXMLLoader)
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
+
+    // Method to open a file
     public String openFile(Label outputLabel) {
         FileChooser fileChooser = new FileChooser();
-
         fileChooser.getExtensionFilters().addAll(xmlExtension, jsonExtension, allFile);
+        fileChooser.setTitle("Import XML or JSON data");
 
-        fileChooser.setTitle("Import xml data"); // Set the title of open dialog
-        fileChooser.setInitialDirectory(new File("./src/main/resources")); // Set the initial path
+        File safeDefaultDir = new File(System.getProperty("user.home"));
+        if (safeDefaultDir.exists() && safeDefaultDir.isDirectory()) {
+            fileChooser.setInitialDirectory(safeDefaultDir);
+        }
+
         File selectedFile = fileChooser.showOpenDialog(stage);
 
         if (selectedFile != null) {
@@ -37,17 +45,21 @@ public class MenuBarController {
             return selectedFile.getPath();
         } else {
             System.out.println("File selection cancelled");
+            return "src/main/resources/Dealer.xml"; // Optional: default fallback path
         }
-        return "src/main/resources/Dealer.xml"; // Return default dealer.xml to prevent error
     }
 
-    // Method for saving the file
+    // Method to save a file
     public void saveFile(Label outputLabel, List<Dealer> dealers) {
         FileChooser fileChooser = new FileChooser();
-
         fileChooser.getExtensionFilters().addAll(jsonExtension, allFile, xmlExtension);
-        fileChooser.setTitle("Save as"); // Set the title of open dialog
-        fileChooser.setInitialDirectory(new File("./src/main/resources")); // Set the initial path
+        fileChooser.setTitle("Save As");
+
+        File safeDefaultDir = new File(System.getProperty("user.home"));
+        if (safeDefaultDir.exists() && safeDefaultDir.isDirectory()) {
+            fileChooser.setInitialDirectory(safeDefaultDir);
+        }
+
         File selectedFile = fileChooser.showSaveDialog(stage);
 
         if (selectedFile != null) {
@@ -60,17 +72,16 @@ public class MenuBarController {
         }
     }
 
-    // Method for exit file
+    // Method to exit the application
     public void exit(AnchorPane scenePane) {
-        // Create an alert window to ask for confirmation
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Exit???");
+        alert.setTitle("Exit?");
         alert.setHeaderText("You're about to exit the app!");
-        alert.setContentText("Make sure you save before existing?");
+        alert.setContentText("Make sure you save before exiting.");
 
         if (alert.showAndWait().get() == ButtonType.OK) {
             stage = (Stage) scenePane.getScene().getWindow();
-            System.out.println("You're successfully exit");
+            System.out.println("Successfully exited");
             stage.close();
         }
     }

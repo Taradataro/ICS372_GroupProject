@@ -17,7 +17,7 @@ public class DealerApplication extends Application {
     public void start(Stage stage) throws IOException {
         try {
             // Load the fxml file to the root
-            Parent root = FXMLLoader.load(getClass().getResource("MainPage.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/hellofx/MainPage.fxml"));
 
             // Create a Scene by passing the root
             Scene scene = new Scene(root);
