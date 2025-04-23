@@ -55,7 +55,17 @@
             <Font size="25.0" />
          </font>
       </Label>
-
+       <!--        Filter box -->
+       <HBox layoutX="14.0" layoutY="275.0" spacing="5.0" alignment="CENTER_LEFT">
+           <children>
+               <Label text="Filter:">
+                   <font>
+                       <Font size="12.0" />
+                   </font>
+               </Label>
+               <ComboBox fx:id="combinedFilterComboBox" prefWidth="250.0" />
+           </children>
+       </HBox>
       <!--        Table show vehicle inventory-->
       <TableView fx:id="vehicleTable" editable="true" layoutY="310.0" prefHeight="268.0" prefWidth="890.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="310.0">
         <columns>
