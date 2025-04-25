@@ -61,6 +61,12 @@
             <version>${kotlin.version}</version>
             <scope>test</scope>
         </dependency>
+        <!-- adding control dependency -->
+        <dependency>
+            <groupId>org.controlsfx</groupId>
+            <artifactId>controlsfx</artifactId>
+            <version>11.1.2</version>
+        </dependency>
     </dependencies>
 
     <build>

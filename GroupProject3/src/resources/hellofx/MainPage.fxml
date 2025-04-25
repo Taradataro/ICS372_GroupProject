@@ -57,7 +57,7 @@
         </Label>
 
         <!--        Table show vehicle inventory-->
-        <TableView fx:id="vehicleTable" editable="true" layoutY="310.0" prefHeight="268.0" prefWidth="890.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="310.0">
+        <TableView fx:id="vehicleTable" editable="true" layoutY="310.0" prefHeight="268.0" prefWidth="890.0" tableMenuButtonVisible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="310.0">
             <columns>
                 <TableColumn fx:id="idCol" prefWidth="151.0" text="ID" />
                 <TableColumn fx:id="typeCol" prefWidth="165.0" text="Type" />
@@ -113,6 +113,8 @@
                 <Insets left="10.0" />
             </padding>
         </ToolBar>
+        <!--        filter options-->
+        <ChoiceBox fx:id="statusFilterBox" layoutX="800.0" layoutY="280.0" prefWidth="120.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="280.0" />
 
     </children>
 </AnchorPane>

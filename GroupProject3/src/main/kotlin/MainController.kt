@@ -37,6 +37,7 @@ class MainController : Initializable {
     @FXML lateinit var transferButton: Button
     @FXML lateinit var rentButton: Button
     @FXML lateinit var returnButton: Button
+    @FXML lateinit var statusFilterBox: ChoiceBox<String>
 
     // Table view
     @FXML lateinit var vehicleTable: TableView<Vehicle>
@@ -80,6 +81,26 @@ class MainController : Initializable {
                 if (menuButton is Button) {
                     Tooltip.install(menuButton, Tooltip("Filter Columns"))
                 }
+            }
+        }
+        // Set up status filter dropdown
+        statusFilterBox.items = FXCollections.observableArrayList(
+            "All", "Available", "Rented", "Sports Car", "SUV", "Sedan", "Truck"
+        )
+        statusFilterBox.value = "All"
+
+        statusFilterBox.setOnAction {
+            val selected = statusFilterBox.value
+            vehicleTable.items = when (selected) {
+                "All" -> dealersOL
+                "Available", "Rented" ->
+                    FXCollections.observableArrayList(dealersOL.filter {
+                        it.status.equals(selected, ignoreCase = true)
+                    })
+                else -> // For types like SUV, Sports Car, etc.
+                    FXCollections.observableArrayList(dealersOL.filter {
+                        it.type.equals(selected, ignoreCase = true)
+                    })
             }
         }
     }
