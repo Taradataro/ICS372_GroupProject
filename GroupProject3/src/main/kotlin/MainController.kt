@@ -8,7 +8,8 @@ import javafx.fxml.FXML
 import javafx.fxml.FXMLLoader
 import javafx.fxml.Initializable
 import javafx.scene.control.*
-import javafx.scene.control.Alert.AlertType
+import javafx.scene.image.Image
+import javafx.scene.image.ImageView
 import javafx.scene.layout.AnchorPane
 import javafx.util.StringConverter
 import Controller.MenuBarController
@@ -23,6 +24,9 @@ class MainController : Initializable {
     enum class DialogMode {
         ADD, UPDATE
     }
+
+    // ImageView to show vehicle images
+    @FXML lateinit var imageView: ImageView
 
     // Pane
     @FXML lateinit var scenePane: AnchorPane
@@ -52,21 +56,16 @@ class MainController : Initializable {
     private var currentDealer: Dealer? = null
     var dealersOL: ObservableList<Vehicle> = FXCollections.observableArrayList()
 
-    // Auto called when the view is created
     override fun initialize(url: URL, resourceBundle: ResourceBundle?) {
-        // Set default value for choice box
         dealerChoiceBox.converter = object : StringConverter<String>() {
             override fun toString(s: String?): String = s ?: "Select Dealer"
             override fun fromString(s: String): String? = null
         }
 
-        // Handling when user selects a dealer -> load the table based on selection
         dealerChoiceBox.setOnAction { handleSelectDealer(it) }
 
-        // Build the table
         VehicleTable.buildTable(vehicleTable, idCol, typeCol, makeCol, modelCol, priceCol, statusCol)
 
-        // If no vehicle is selected then disable update, delete, transfer, rent, return buttons
         val selectedItem = vehicleTable.selectionModel.selectedItemProperty()
         deleteButton.disableProperty().bind(Bindings.isNull(selectedItem))
         updateButton.disableProperty().bind(Bindings.isNull(selectedItem))
@@ -74,7 +73,6 @@ class MainController : Initializable {
         rentButton.disableProperty().bind(Bindings.isNull(selectedItem))
         returnButton.disableProperty().bind(Bindings.isNull(selectedItem))
 
-        // Add tooltip to column menu button
         vehicleTable.skinProperty().addListener { _, _, newSkin ->
             if (newSkin != null) {
                 val menuButton = vehicleTable.lookup(".show-hide-columns-button")
@@ -83,7 +81,7 @@ class MainController : Initializable {
                 }
             }
         }
-        // Set up status filter dropdown
+
         statusFilterBox.items = FXCollections.observableArrayList(
             "All", "Available", "Rented", "Sports Car", "SUV", "Sedan", "Truck"
         )
@@ -97,48 +95,74 @@ class MainController : Initializable {
                     FXCollections.observableArrayList(dealersOL.filter {
                         it.status.equals(selected, ignoreCase = true)
                     })
-                else -> // For types like SUV, Sports Car, etc.
+                else ->
                     FXCollections.observableArrayList(dealersOL.filter {
                         it.type.equals(selected, ignoreCase = true)
                     })
             }
         }
+
+        // Image update on vehicle selection
+        vehicleTable.selectionModel.selectedItemProperty().addListener { _, _, newVehicle ->
+            if (newVehicle != null) {
+                showVehicleImage(newVehicle.type)
+            }
+        }
     }
 
-    // Handle when user selects open file
+    private fun showVehicleImage(vehicleType: String) {
+        // Convert vehicle type to match your image file names
+        val imageName = when (vehicleType.lowercase()) {
+            "suv" -> "images/suv.png"
+            "sedan" -> "images/sedan.png"
+            "sports car" -> "images/sports_car.png"
+            "truck", "pickup" -> "images/truck.png"  // Added "pickup" as an alias
+            else -> "default.png"
+        }
+
+        try {
+            // Load from resources folder (src/main/resources)
+            val image = Image(javaClass.getResourceAsStream("/$imageName"))
+
+            if (image.isError) {
+                println("Error loading image: ${image.exception.message}")
+                imageView.image = null  // Clear image view if error occurs
+            } else {
+                imageView.image = image
+            }
+        } catch (e: Exception) {
+            println("Failed to load image for $vehicleType ($imageName). Error: ${e.message}")
+            imageView.image = null
+        }
+    }
+
     @FXML
     fun handleOpenFile(event: ActionEvent?) {
-        println("Opening the file")
         val filePath = MenuBarController().openFile(outputLabel)
         dealers = DealerSingleton.getDealers(filePath).toMutableList()
         val namesList = dealers.map { it.name }
         dealerChoiceBox.items = FXCollections.observableArrayList(namesList)
     }
 
-    // Handle when user clicks save option from menu
     @FXML
     fun handleSaveFile(event: ActionEvent?) {
-        println("Saving the file")
         MenuBarController().saveFile(outputLabel, dealers)
     }
 
-    // Handle when user selects close option from menu
     @FXML
     fun handleCloseApp(event: ActionEvent?) {
-        println("Closing the file")
         MenuBarController().exit(scenePane)
     }
-    //handle when user selects about option from menu
+
     @FXML
     fun handleAbout(event: ActionEvent?) {
-        val alert = Alert(AlertType.INFORMATION)
+        val alert = Alert(Alert.AlertType.INFORMATION)
         alert.title = "About"
         alert.headerText = "Dealership Management System"
-        alert.contentText = "This application allows users to manage vehicle inventory and dealer operations. If you need help, we can't help you. YOYO "
+        alert.contentText = "This application allows users to manage vehicle inventory and dealer operations. If you need help, we can't help you. YOYO."
         alert.showAndWait()
     }
 
-    // Handle when user selects a dealer from the ChoiceBox
     @FXML
     fun handleSelectDealer(event: ActionEvent?) {
         val dealerName = dealerChoiceBox.value
@@ -158,7 +182,6 @@ class MainController : Initializable {
         handleUpdateVehicle(event)
     }
 
-    // Handle add/update vehicle
     @FXML
     fun handleUpdateVehicle(event: ActionEvent) {
         val mode: DialogMode
@@ -187,12 +210,11 @@ class MainController : Initializable {
 
             val clickedButton = dialog.showAndWait()
             if (clickedButton.isPresent && clickedButton.get() == ButtonType.OK) {
-                println("User clicked OK")
                 if (mode == DialogMode.ADD && currentDealer != null) {
                     currentDealer!!.vehicles.add(vehicle)
                     dealersOL.add(vehicle)
                 } else if (currentDealer == null) {
-                    showAlertMessage(AlertType.WARNING, "No dealer selected", "Please select dealer before adding new vehicle")
+                    showAlertMessage(Alert.AlertType.WARNING, "No dealer selected", "Please select dealer before adding new vehicle")
                 }
             }
         } catch (e: Exception) {
@@ -200,7 +222,6 @@ class MainController : Initializable {
         }
     }
 
-    // Handle delete vehicle
     @FXML
     fun handleDeleteVehicle(event: ActionEvent?) {
         val selected = vehicleTable.selectionModel.selectedItem
@@ -213,14 +234,12 @@ class MainController : Initializable {
             if (confirmation.showAndWait().get() == ButtonType.OK) {
                 currentDealer!!.vehicles.remove(selected)
                 dealersOL.remove(selected)
-                println("Vehicle deleted: \${selected.id}")
             }
         } else {
-            showAlertMessage(AlertType.WARNING, "No selection", "Please select a vehicle to delete.")
+            showAlertMessage(Alert.AlertType.WARNING, "No selection", "Please select a vehicle to delete.")
         }
     }
 
-    // Handle transfer vehicle
     @FXML
     fun handleTransferVehicle(event: ActionEvent?) {
         val selected = vehicleTable.selectionModel.selectedItem
@@ -240,13 +259,11 @@ class MainController : Initializable {
                     dealersOL.remove(selected)
                     vehicleTable.items = FXCollections.observableArrayList(target.vehicles)
                     vehicleTable.refresh()
-                    println("Vehicle transferred to: \${target.name}")
                 }
             }
-        } else println("No vehicle selected to transfer.")
+        }
     }
 
-    // Handle rent vehicle
     @FXML
     fun handleRentVehicle(event: ActionEvent?) {
         val selected = vehicleTable.selectionModel.selectedItem
@@ -254,15 +271,12 @@ class MainController : Initializable {
             if (selected.status.equals("Available", ignoreCase = true)) {
                 selected.status = "Rented"
                 vehicleTable.refresh()
-                println("Vehicle rented: \$selected")
-            } else println("This vehicle is not available for rent.")
+            }
         } else {
-            println("Cannot rent sports car.")
-            showAlertMessage(AlertType.ERROR, "Car type error", "A sport car cannot be rented")
+            showAlertMessage(Alert.AlertType.ERROR, "Car type error", "A sport car cannot be rented")
         }
     }
 
-    // Handle return vehicle
     @FXML
     fun handleReturnVehicle(event: ActionEvent?) {
         val selected = vehicleTable.selectionModel.selectedItem
@@ -270,15 +284,12 @@ class MainController : Initializable {
             if (selected.status.equals("Rented", ignoreCase = true)) {
                 selected.status = "Available"
                 vehicleTable.refresh()
-                println("Vehicle returned: \$selected")
             } else {
-                println("This vehicle is not currently rented.")
-                showAlertMessage(AlertType.ERROR, "Error", "This vehicle is not currently rented")
+                showAlertMessage(Alert.AlertType.ERROR, "Error", "This vehicle is not currently rented")
             }
-        } else println("No vehicle selected to return.")
+        }
     }
 
-    // Handle add new dealer
     @FXML
     fun handleAddDealer(event: ActionEvent?) {
         val newDealer = Dealer()
@@ -294,16 +305,13 @@ class MainController : Initializable {
 
             val clickedButton = dialog.showAndWait()
             if (clickedButton.get() == ButtonType.OK) {
-                println("User clicked OK")
                 if (dealers.isNotEmpty()) {
                     dealers.add(newDealer)
-                    println("New dealer added: \$newDealer")
                     val names = dealers.map { it.name }
                     dealerChoiceBox.items = FXCollections.observableArrayList(names)
                     dealerChoiceBox.value = newDealer.name
                 } else {
-                    println("Please import file first")
-                    showAlertMessage(AlertType.ERROR, "Error adding new dealer", "Please import new file before adding new dealer")
+                    showAlertMessage(Alert.AlertType.ERROR, "Error adding new dealer", "Please import new file before adding new dealer")
                 }
             }
         } catch (e: Exception) {
@@ -311,11 +319,11 @@ class MainController : Initializable {
         }
     }
 
-    private fun showAlertMessage(alertType: AlertType, title: String, message: String) {
+    private fun showAlertMessage(alertType: Alert.AlertType, headerText: String, contentText: String) {
         val alert = Alert(alertType)
-        alert.title = title
-        alert.headerText = null
-        alert.contentText = message
+        alert.title = "Information"
+        alert.headerText = headerText
+        alert.contentText = contentText
         alert.showAndWait()
     }
 }
