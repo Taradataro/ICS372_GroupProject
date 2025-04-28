@@ -11,102 +11,68 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JSONFileHandler implements FileHandler {
+
+    @Override
     public List<Dealer> getDealers(String inputPath) {
         List<Dealer> dealers = new ArrayList<>();
-
         try {
-            // Read the entire file content as a String
-            String content = new String(Files.readAllBytes(Paths.get(inputPath)));
-
-            // Parse the root JSON object
+            String content = Files.readString(Paths.get(inputPath));
             JSONObject root = new JSONObject(content);
+            JSONArray arr = root.getJSONArray("Dealers");
 
-            // Get the "Dealers" array
-            JSONArray dealersArray = root.getJSONArray("Dealers");
-
-            // Loop through each wrapped dealer
-            for (int i = 0; i < dealersArray.length(); i++) {
-                JSONObject wrappedDealer = dealersArray.getJSONObject(i);
-                JSONObject dealerJson = wrappedDealer.getJSONObject("Dealer");
-
-                String id = dealerJson.getString("id");
-                String name = dealerJson.getString("name");
-
-                Dealer dealer = new Dealer(id, name);
-
-                // Parse vehicles
-                JSONArray vehiclesArray = dealerJson.getJSONArray("vehicles");
-                for (int j = 0; j < vehiclesArray.length(); j++) {
-                    JSONObject vJson = vehiclesArray.getJSONObject(j);
-
-                    String vId = vJson.getString("id");
-                    String vType = vJson.getString("type");
-                    String vMake = vJson.getString("make");
-                    String vModel = vJson.getString("model");
-                    String vPrice = vJson.getString("price");
-                    String vStatus = vJson.getString("status");
-
-                    Vehicle vehicle = new Vehicle(vType, vId, vPrice, vMake, vModel);
-                    vehicle.setStatus(vStatus);
-
-                    dealer.getVehicles().add(vehicle);
+            for (int i = 0; i < arr.length(); i++) {
+                JSONObject dWrap = arr.getJSONObject(i).getJSONObject("Dealer");
+                Dealer d = new Dealer(dWrap.getString("id"), dWrap.getString("name"));
+                JSONArray vArr = dWrap.getJSONArray("vehicles");
+                for (int j = 0; j < vArr.length(); j++) {
+                    JSONObject vJ = vArr.getJSONObject(j);
+                    Vehicle v = new Vehicle(
+                            vJ.getString("type"),
+                            vJ.getString("id"),
+                            vJ.getString("price"),
+                            vJ.getString("make"),
+                            vJ.getString("model")
+                    );
+                    v.setStatus(vJ.getString("status"));
+                    d.addVehicle(v);
                 }
-
-                dealers.add(dealer);
+                dealers.add(d);
             }
-
-        } catch (IOException e) {
-            System.err.println("Error reading JSON file: " + e.getMessage());
         } catch (Exception e) {
-            System.err.println("Error parsing JSON: " + e.getMessage());
+            e.printStackTrace();
         }
-
         return dealers;
     }
 
     public static void saveAsJson(List<Dealer> dealers, String outputPath) {
-        // Create JSON array to store all data
-        JSONArray dealersArray = new JSONArray();
-
-        // Iterate through each dealer -> get the id, name, etc...
-        for (Dealer dealer : dealers) {
-            // Store dealer data
-            JSONObject dealerJson = new JSONObject();
-            dealerJson.put("id", dealer.getId());
-            dealerJson.put("name", dealer.getName());
-
-            // Store vehicle data
-            JSONArray vehiclesArray = new JSONArray();
-            for (Vehicle v : dealer.getVehicles()) {
-                JSONObject vehicleJson = new JSONObject();
-                vehicleJson.put("id", v.getId());
-                vehicleJson.put("type", v.getType());
-                vehicleJson.put("make", v.getMake());
-                vehicleJson.put("model", v.getModel());
-                vehicleJson.put("price", v.getPrice());
-                vehicleJson.put("status", v.getStatus());
-                vehiclesArray.put(vehicleJson);
-            }
-
-            dealerJson.put("vehicles", vehiclesArray);
-
-            // Wrap each dealer in a "Dealer" object
-            JSONObject wrappedDealer = new JSONObject();
-            wrappedDealer.put("Dealer", dealerJson);
-            dealersArray.put(wrappedDealer);
-        }
-
-        // Root object with key "Dealers"
         JSONObject root = new JSONObject();
-        root.put("Dealers", dealersArray);
-
-        // Write the file with given path from user
-        try (FileWriter file = new FileWriter(outputPath)) {
-            file.write(root.toString(4)); // Add spacing of 4
-            System.out.println("JSON file saved to: " + outputPath);
-        } catch (IOException e) {
-            System.err.println("Error writing JSON: " + e.getMessage());
+        JSONArray arr = new JSONArray();
+        for (Dealer d : dealers) {
+            JSONObject dJ = new JSONObject();
+            dJ.put("id", d.getId());
+            dJ.put("name", d.getName());
+            JSONArray vArr = new JSONArray();
+            for (Vehicle v : d.getVehicles()) {
+                JSONObject vJ = new JSONObject();
+                vJ.put("type", v.getType());
+                vJ.put("id", v.getId());
+                vJ.put("price", v.getPrice());
+                vJ.put("make", v.getMake());
+                vJ.put("model", v.getModel());
+                vJ.put("status", v.getStatus());
+                vArr.put(vJ);
+            }
+            dJ.put("vehicles", vArr);
+            JSONObject wrap = new JSONObject();
+            wrap.put("Dealer", dJ);
+            arr.put(wrap);
         }
+        root.put("Dealers", arr);
 
+        try (FileWriter fw = new FileWriter(outputPath)) {
+            fw.write(root.toString(4));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

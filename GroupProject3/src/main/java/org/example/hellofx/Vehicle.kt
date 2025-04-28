@@ -1,79 +1,72 @@
-package org.example.hellofx;
+package org.example.hellofx
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.SimpleStringProperty
+import javafx.beans.property.StringProperty
 
-public class Vehicle {
-    private StringProperty id;
-    private StringProperty type;
-    private StringProperty make;
-    private StringProperty model;
-    private StringProperty price;
-    private String status;
+class Vehicle {
+        private val idProp: StringProperty
+        private val typeProp: StringProperty
+        private val makeProp: StringProperty
+        private val modelProp: StringProperty
+        private val priceProp: StringProperty
+        private var status: String
 
+        constructor() : this("", "", "", "", "")
+        constructor(
+                type: String,
+                id: String,
+                price: String,
+                make: String,
+                model: String
+        ) {
+                this.typeProp = SimpleStringProperty(type)
+                this.idProp   = SimpleStringProperty(id)
+                this.priceProp= SimpleStringProperty(price)
+                this.makeProp = SimpleStringProperty(make)
+                this.modelProp= SimpleStringProperty(model)
+                this.status   = "Available"
+        }
+        private constructor(
+                typeProp: StringProperty,
+                idProp:   StringProperty,
+                priceProp:StringProperty,
+                makeProp: StringProperty,
+                modelProp:StringProperty,
+                status:   String
+        ) {
+                this.typeProp = typeProp
+                this.idProp   = idProp
+                this.priceProp= priceProp
+                this.makeProp = makeProp
+                this.modelProp= modelProp
+                this.status   = status
+        }
 
-    // Default constructor
-    public Vehicle() {
-        this("","", "", "", "");
-    }
+        fun idProperty(): StringProperty    = idProp
+        fun typeProperty(): StringProperty  = typeProp
+        fun makeProperty(): StringProperty  = makeProp
+        fun modelProperty(): StringProperty = modelProp
+        fun priceProperty(): StringProperty = priceProp
 
-    public Vehicle(StringProperty id, StringProperty type, StringProperty model, StringProperty make, StringProperty price, String status) {
-        this.id = id;
-        this.type = type;
-        this.model = model;
-        this.make = make;
-        this.price = price;
-        this.status = status;
-    }
+        var id:    String
+                get() = idProp.get()
+                set(v) = idProp.set(v)
+        var type:  String
+                get() = typeProp.get()
+                set(v) = typeProp.set(v)
+        var make:  String
+                get() = makeProp.get()
+                set(v) = makeProp.set(v)
+        var model: String
+                get() = modelProp.get()
+                set(v) = modelProp.set(v)
+        var price: String
+                get() = priceProp.get()
+                set(v) = priceProp.set(v)
 
-    // Property Getter method
-    public StringProperty idProperty() {return id;}
-    public StringProperty typeProperty() {return type;}
-    public StringProperty makeProperty() {return make;}
-    public StringProperty modelProperty() {return model;}
-    public StringProperty priceProperty() {return price;}
+        fun getStatus(): String = status
+        fun setStatus(s: String) { status = s }
 
-    // Constructor with type, id, price, make, and model
-    public Vehicle(String type, String id, String price, String make, String model) {
-        this.id = new SimpleStringProperty(id);
-        this.type = new SimpleStringProperty(type);
-        this.make = new SimpleStringProperty(make);
-        this.model = new SimpleStringProperty(model);
-        this.price = new SimpleStringProperty(price);
-        this.status = "Available";
-    }
-
-    // Getters and Setters for each property
-    public String getType() { return type.get(); }
-    public String getId() {
-        return id.get();
-    }
-    public String getPrice() {
-        return price.get();
-    }
-    public String getMake() {
-        return make.get();
-    }
-    public String getModel() {
-        return model.get();
-    }
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    @Override
-    public String toString() {
-        return "Vehicle{" +
-                "id=" + getId() +
-                ", type=" + getType() +
-                ", make=" + getMake() +
-                ", model=" + getModel() +
-                ", price=" + getPrice() +
-                '\'' +
-                '}';
-    }
+        override fun toString() =
+                "Vehicle(id=$id, type=$type, make=$make, model=$model, price=$price, status=$status)"
 }
