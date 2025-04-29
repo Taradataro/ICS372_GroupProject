@@ -10,12 +10,12 @@ import org.example.hellofx.Vehicle;
 public class VehicleTable {
 
     public static void buildTable(TableView<Vehicle> vehicleTable,
-                            TableColumn<Vehicle, String> idCol,
-                            TableColumn<Vehicle, String> typeCol,
-                            TableColumn<Vehicle, String> makeCol,
-                            TableColumn<Vehicle, String> modelCol,
-                            TableColumn<Vehicle, String> priceCol,
-                            TableColumn<Vehicle, String> statusCol) {
+                                  TableColumn<Vehicle, String> idCol,
+                                  TableColumn<Vehicle, String> typeCol,
+                                  TableColumn<Vehicle, String> makeCol,
+                                  TableColumn<Vehicle, String> modelCol,
+                                  TableColumn<Vehicle, String> priceCol,
+                                  TableColumn<Vehicle, String> statusCol) {
         // Set the perfect space for all the column with no extra space
         vehicleTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         // Set placeholder message
