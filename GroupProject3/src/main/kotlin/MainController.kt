@@ -1,5 +1,9 @@
 package org.example.hellofx
 
+import Controller.DealerDialogController
+import Controller.MenuBarController
+import Controller.VehicleDialogController
+import Controller.VehicleTable
 import javafx.beans.binding.Bindings
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
@@ -12,10 +16,9 @@ import javafx.scene.image.Image
 import javafx.scene.image.ImageView
 import javafx.scene.layout.AnchorPane
 import javafx.util.StringConverter
-import Controller.MenuBarController
-import Controller.VehicleTable
-import Controller.VehicleDialogController
-import Controller.DealerDialogController
+import org.example.hellofx.Dealer
+import org.example.hellofx.DealerSingleton
+import org.example.hellofx.Vehicle
 import java.net.URL
 import java.util.*
 
@@ -23,96 +26,78 @@ class MainController : Initializable {
 
     enum class DialogMode { ADD, UPDATE }
 
-    // Image view for vehicles
-    @FXML lateinit var imageView: ImageView
+    @FXML private lateinit var imageView: ImageView
+    @FXML private lateinit var scenePane: AnchorPane
+    @FXML private lateinit var outputLabel: Label
 
-    // Main panes and labels
-    @FXML lateinit var scenePane: AnchorPane
-    @FXML lateinit var outputLabel: Label
+    @FXML private lateinit var myLabel: Label
+    @FXML private lateinit var dealerChoiceBox: ChoiceBox<String>
+    @FXML private lateinit var updateButton: Button
+    @FXML private lateinit var addButton: Button
+    @FXML private lateinit var deleteButton: Button
+    @FXML private lateinit var transferButton: Button
+    @FXML private lateinit var rentButton: Button
+    @FXML private lateinit var returnButton: Button
+    @FXML private lateinit var statusFilterBox: ChoiceBox<String>
+    @FXML private lateinit var searchField: TextField
 
-    // Dealer controls
-    @FXML lateinit var myLabel: Label
-    @FXML lateinit var dealerChoiceBox: ChoiceBox<String>
-    @FXML lateinit var updateButton: Button
-    @FXML lateinit var addButton: Button
-    @FXML lateinit var deleteButton: Button
-    @FXML lateinit var transferButton: Button
-    @FXML lateinit var rentButton: Button
-    @FXML lateinit var returnButton: Button
-    @FXML lateinit var statusFilterBox: ChoiceBox<String>
-
-    // Search controls
-    @FXML lateinit var searchTypeBox: ChoiceBox<String>
-    @FXML lateinit var searchField: TextField
-    @FXML lateinit var searchButton: Button
-    @FXML lateinit var clearSearchButton: Button
-
-    // Vehicle table and columns
-    @FXML lateinit var vehicleTable: TableView<Vehicle>
-    @FXML lateinit var idCol: TableColumn<Vehicle, String>
-    @FXML lateinit var typeCol: TableColumn<Vehicle, String>
-    @FXML lateinit var makeCol: TableColumn<Vehicle, String>
-    @FXML lateinit var modelCol: TableColumn<Vehicle, String>
-    @FXML lateinit var priceCol: TableColumn<Vehicle, String>
-    @FXML lateinit var statusCol: TableColumn<Vehicle, String>
+    @FXML private lateinit var vehicleTable: TableView<Vehicle>
+    @FXML private lateinit var typeCol: TableColumn<Vehicle, String>
+    @FXML private lateinit var idCol: TableColumn<Vehicle, String>
+    @FXML private lateinit var makeCol: TableColumn<Vehicle, String>
+    @FXML private lateinit var modelCol: TableColumn<Vehicle, String>
+    @FXML private lateinit var priceCol: TableColumn<Vehicle, String>
+    @FXML private lateinit var statusCol: TableColumn<Vehicle, String>
 
     private var dealers: MutableList<Dealer> = mutableListOf()
     private var currentDealer: Dealer? = null
     private var dealersOL: ObservableList<Vehicle> = FXCollections.observableArrayList()
 
     override fun initialize(url: URL, resourceBundle: ResourceBundle?) {
-        // Dealer choice setup
         dealerChoiceBox.converter = object : StringConverter<String>() {
             override fun toString(s: String?) = s ?: "Select Dealer"
             override fun fromString(s: String) = null
         }
         dealerChoiceBox.setOnAction { handleSelectDealer(null) }
 
-        // Vehicle table setup
         VehicleTable.buildTable(vehicleTable, idCol, typeCol, makeCol, modelCol, priceCol, statusCol)
-        val selProp = vehicleTable.selectionModel.selectedItemProperty()
-        listOf(deleteButton, updateButton, transferButton, rentButton, returnButton)
-            .forEach { it.disableProperty().bind(Bindings.isNull(selProp)) }
+
+        deleteButton.disableProperty().bind(Bindings.isNull(vehicleTable.selectionModel.selectedItemProperty()))
+        updateButton.disableProperty().bind(Bindings.isNull(vehicleTable.selectionModel.selectedItemProperty()))
+        transferButton.disableProperty().bind(Bindings.isNull(vehicleTable.selectionModel.selectedItemProperty()))
+        rentButton.disableProperty().bind(Bindings.isNull(vehicleTable.selectionModel.selectedItemProperty()))
+        returnButton.disableProperty().bind(Bindings.isNull(vehicleTable.selectionModel.selectedItemProperty()))
 
         vehicleTable.skinProperty().addListener { _, _, newSkin ->
             if (newSkin != null) {
-                (vehicleTable.lookup(".show-hide-columns-button") as? Button)?.let {
-                    Tooltip.install(it, Tooltip("Filter Columns"))
-                }
+                val mb = vehicleTable.lookup(".show-hide-columns-button")
+                if (mb is Button) Tooltip.install(mb, Tooltip("Filter Columns"))
             }
         }
 
-        // Status filter
         statusFilterBox.items = FXCollections.observableArrayList(
             "All", "Available", "Rented", "Sports Car", "SUV", "Sedan", "Truck"
         )
         statusFilterBox.value = "All"
-        statusFilterBox.setOnAction { filterByStatus() }
-
-        // Update image on selection
-        vehicleTable.selectionModel.selectedItemProperty().addListener { _, _, v ->
-            v?.let { showVehicleImage(it.type) }
+        statusFilterBox.setOnAction {
+            val selStatus = statusFilterBox.value
+            vehicleTable.items = when (selStatus) {
+                "All" -> dealersOL
+                "Available", "Rented" -> FXCollections.observableArrayList(
+                    dealersOL.filter { it.status.equals(selStatus, true) }
+                )
+                else -> FXCollections.observableArrayList(
+                    dealersOL.filter { it.type.equals(selStatus, true) }
+                )
+            }
         }
 
-        // Search setup
-        searchTypeBox.items = FXCollections.observableArrayList("Dealer", "Vehicle")
-        searchTypeBox.value = "Dealer"
-        // Remove placeholder text behind search field
-        searchField.promptText = ""
-        searchField.setOnAction { handleSearch(null) }
-        clearSearchButton.setOnAction { handleClearSearch(null) }
-    }
+        searchField.textProperty().addListener { _, _, query ->
+            filterVehicles(query)
+        }
 
-    private fun filterByStatus() {
-        val sel = statusFilterBox.value
-        vehicleTable.items = when (sel) {
-            "All" -> dealersOL
-            "Available", "Rented" -> FXCollections.observableArrayList(
-                dealersOL.filter { it.getStatus().equals(sel, ignoreCase = true) }
-            )
-            else -> FXCollections.observableArrayList(
-                dealersOL.filter { it.type.equals(sel, ignoreCase = true) }
-            )
+        vehicleTable.selectionModel.selectedItemProperty().addListener { _, _, v ->
+            if (v != null) showVehicleImage(v.type)
         }
     }
 
@@ -125,37 +110,29 @@ class MainController : Initializable {
             else -> "default.png"
         }
         try {
-            val stream = javaClass.getResourceAsStream("/$imageName")
-            val image = stream?.let { Image(it) }
-            if (image == null || image.isError) {
-                imageView.image = null
-            } else {
-                imageView.image = image
-            }
+            val img = Image(javaClass.getResourceAsStream("/$imageName"))
+            imageView.image = if (img.isError) null else img
         } catch (e: Exception) {
+            println("Failed to load $imageName: ${e.message}")
             imageView.image = null
         }
     }
 
-    @FXML
-    fun handleOpenFile(event: ActionEvent?) {
+    @FXML fun handleOpenFile(event: ActionEvent?) {
         val path = MenuBarController().openFile(outputLabel)
         dealers = DealerSingleton.getDealers(path).toMutableList()
         dealerChoiceBox.items = FXCollections.observableArrayList(dealers.map { it.name })
     }
 
-    @FXML
-    fun handleSaveFile(event: ActionEvent?) {
+    @FXML fun handleSaveFile(event: ActionEvent?) {
         MenuBarController().saveFile(outputLabel, dealers)
     }
 
-    @FXML
-    fun handleCloseApp(event: ActionEvent?) {
+    @FXML fun handleCloseApp(event: ActionEvent?) {
         MenuBarController().exit(scenePane)
     }
 
-    @FXML
-    fun handleAbout(event: ActionEvent?) {
+    @FXML fun handleAbout(event: ActionEvent?) {
         Alert(Alert.AlertType.INFORMATION).apply {
             title = "About"
             headerText = "Dealership Management System"
@@ -163,166 +140,142 @@ class MainController : Initializable {
         }.showAndWait()
     }
 
-    @FXML
-    fun handleSelectDealer(event: ActionEvent?) {
-        dealerChoiceBox.value?.let { name ->
-            myLabel.text = name
-            dealers.find { it.name == name }?.let {
-                currentDealer = it
-                dealersOL = FXCollections.observableArrayList(it.getVehicles())
-                vehicleTable.items = dealersOL
-            }
-        }
-    }
-
-    @FXML
-    fun handleAddVehicle(event: ActionEvent) = handleUpdateVehicle(event)
-
-    @FXML
-    fun handleUpdateVehicle(event: ActionEvent) {
-        val mode = if (event.source == updateButton) DialogMode.UPDATE else DialogMode.ADD
-        val title = if (mode == DialogMode.UPDATE) "Update Vehicle" else "Add Vehicle"
-        val vehicle = if (mode == DialogMode.UPDATE) vehicleTable.selectionModel.selectedItem else Vehicle()
-        try {
-            FXMLLoader(javaClass.getResource("/hellofx/VehicleDialog.fxml")).apply {
-                val pane = load<DialogPane>()
-                getController<VehicleDialogController>().setVehicle(vehicle)
-                Dialog<ButtonType>().apply {
-                    dialogPane = pane
-                    this.title = title
-                }.showAndWait().filter { it == ButtonType.OK }.ifPresent {
-                    if (mode == DialogMode.ADD && currentDealer != null) {
-                        currentDealer!!.addVehicle(vehicle)
-                        dealersOL.add(vehicle)
-                    } else if (currentDealer == null) showAlert("Warning", "Please select a dealer first.")
-                }
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }
-
-    @FXML
-    fun handleDeleteVehicle(event: ActionEvent?) {
-        vehicleTable.selectionModel.selectedItem?.let { sel ->
-            if (currentDealer != null) {
-                Alert(Alert.AlertType.CONFIRMATION).apply {
-                    title = "Delete Vehicle"
-                    headerText = "Confirm deletion"
-                    contentText = "This cannot be undone."
-                }.showAndWait().filter { it == ButtonType.OK }.ifPresent {
-                    currentDealer!!.removeVehicle(sel)
-                    dealersOL.remove(sel)
-                }
-            }
-        } ?: showAlert("Warning", "Please select a vehicle to delete.")
-    }
-
-    @FXML
-    fun handleTransferVehicle(event: ActionEvent?) {
-        vehicleTable.selectionModel.selectedItem?.let { sel ->
-            ChoiceDialog(dealers.map { it.name }.first(), dealers.map { it.name }).apply {
-                title = "Transfer Vehicle"
-                headerText = "Choose target dealer"
-                contentText = "Dealer:"
-            }.showAndWait().ifPresent { name ->
-                dealers.find { it.name == name }?.let { target ->
-                    currentDealer?.removeVehicle(sel)
-                    target.addVehicle(sel)
-                    dealersOL.remove(sel)
-                    vehicleTable.items = FXCollections.observableArrayList(target.getVehicles())
-                }
-            }
-        }
-    }
-
-    @FXML
-    fun handleRentVehicle(event: ActionEvent?) {
-        vehicleTable.selectionModel.selectedItem?.let { sel ->
-            if (sel.type.equals("sports car", true)) showAlert("Error", "Sports cars cannot be rented.")
-            else if (sel.getStatus().equals("Available", true)) {
-                sel.setStatus("Rented")
-                vehicleTable.refresh()
-            }
-        }
-    }
-
-    @FXML
-    fun handleReturnVehicle(event: ActionEvent?) {
-        vehicleTable.selectionModel.selectedItem?.let { sel ->
-            if (sel.getStatus().equals("Rented", true)) {
-                sel.setStatus("Available")
-                vehicleTable.refresh()
-            } else showAlert("Error", "This vehicle is not currently rented.")
-        }
-    }
-
-    @FXML
-    fun handleAddDealer(event: ActionEvent?) {
-        val newDealer = Dealer()
-        try {
-            FXMLLoader(javaClass.getResource("/hellofx/DealerDialog.fxml")).apply {
-                val pane = load<DialogPane>()
-                getController<DealerDialogController>().setDealer(newDealer)
-                Dialog<ButtonType>().apply {
-                    dialogPane = pane
-                    title = "Add Dealer"
-                }.showAndWait().filter { it == ButtonType.OK }.ifPresent {
-                    dealers.add(newDealer)
-                    dealerChoiceBox.items = FXCollections.observableArrayList(dealers.map { it.name })
-                    dealerChoiceBox.value = newDealer.name
-                }
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }
-
-    @FXML
-    fun handleSearch(event: ActionEvent?) {
-        val query = searchField.text.trim().lowercase()
-        if (query.isEmpty()) {
-            showAlert("Warning", "Please type something to search.")
-            return
-        }
-        when (searchTypeBox.value) {
-            "Dealer" -> {
-                val matches = dealers.map { it.name }
-                    .filter { it.lowercase().contains(query) }
-                dealerChoiceBox.items = FXCollections.observableArrayList(matches)
-                if (matches.isNotEmpty()) {
-                    dealerChoiceBox.value = matches.first()
-                    handleSelectDealer(null)
-                }
-            }
-            "Vehicle" -> {
-                if (currentDealer == null) {
-                    showAlert("Warning", "Please select a dealer before searching vehicles.")
-                    return
-                }
-                val filtered = dealersOL.filter { v ->
-                    listOf(v.id, v.make, v.model, v.type, v.getStatus())
-                        .any { it.lowercase().contains(query) }
-                }
-                vehicleTable.items = FXCollections.observableArrayList(filtered)
-            }
-        }
-    }
-
-    @FXML
-    fun handleClearSearch(event: ActionEvent?) {
-        searchField.clear()
-        dealerChoiceBox.items = FXCollections.observableArrayList(dealers.map { it.name })
-        currentDealer?.let {
-            dealersOL = FXCollections.observableArrayList(it.getVehicles())
+    @FXML fun handleSelectDealer(event: ActionEvent?) {
+        val name = dealerChoiceBox.value
+        myLabel.text = name
+        dealers.find { it.name == name }?.let {
+            currentDealer = it
+            dealersOL = FXCollections.observableArrayList(it.vehicles)
             vehicleTable.items = dealersOL
         }
     }
 
-    private fun showAlert(type: String, msg: String) {
-        Alert(Alert.AlertType.INFORMATION).apply {
-            headerText = type
-            contentText = msg
+    @FXML fun handleAddVehicle(event: ActionEvent) = handleVehicleDialog(event, DialogMode.ADD)
+    @FXML fun handleUpdateVehicle(event: ActionEvent) = handleVehicleDialog(event, DialogMode.UPDATE)
+
+    private fun handleVehicleDialog(event: ActionEvent, mode: DialogMode) {
+        val (title, vehicle) = when (mode) {
+            DialogMode.ADD -> "Add Vehicle" to Vehicle()
+            DialogMode.UPDATE -> {
+                val sel = vehicleTable.selectionModel.selectedItem ?: return
+                "Update Vehicle" to sel
+            }
+        }
+        try {
+            val loader = FXMLLoader(javaClass.getResource("/hellofx/VehicleDialog.fxml"))
+            val pane = loader.load<DialogPane>()
+            val ctrl = loader.getController<VehicleDialogController>()
+            ctrl.setVehicle(vehicle)
+
+            Dialog<ButtonType>().apply {
+                dialogPane = pane
+                this.title = title
+            }.showAndWait().filter { it == ButtonType.OK }.ifPresent {
+                if (mode == DialogMode.ADD && currentDealer != null) {
+                    currentDealer!!.vehicles.add(vehicle)
+                    dealersOL.add(vehicle)
+                } else if (mode == DialogMode.ADD) {
+                    showAlert(Alert.AlertType.WARNING, "No dealer selected", "Please select a dealer first")
+                }
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    @FXML fun handleDeleteVehicle(event: ActionEvent?) {
+        val sel = vehicleTable.selectionModel.selectedItem
+        if (sel != null && currentDealer != null) {
+            Alert(Alert.AlertType.CONFIRMATION).apply {
+                title = "Delete Vehicle"
+                headerText = "Are you sure you want to delete?"
+                contentText = "This cannot be undone."
+            }.showAndWait().filter { it == ButtonType.OK }.ifPresent {
+                currentDealer!!.vehicles.remove(sel)
+                dealersOL.remove(sel)
+            }
+        } else {
+            showAlert(Alert.AlertType.WARNING, "No selection", "Select a vehicle first")
+        }
+    }
+
+    @FXML fun handleTransferVehicle(event: ActionEvent?) {
+        val sel = vehicleTable.selectionModel.selectedItem ?: return
+        val names = dealers.map { it.name }
+        ChoiceDialog(names.first(), names).apply {
+            title = "Select Target Dealer"
+            headerText = "Choose dealer:"
+            contentText = "Dealer:"
+        }.showAndWait().filter { true }.ifPresent { targetName ->
+            val target = dealers.find { it.name == targetName } ?: return@ifPresent
+            currentDealer?.vehicles?.remove(sel)
+            target.vehicles.add(sel)
+            dealersOL.remove(sel)
+            vehicleTable.items = FXCollections.observableArrayList(target.vehicles)
+            vehicleTable.refresh()
+        }
+    }
+
+    @FXML fun handleRentVehicle(event: ActionEvent?) {
+        val sel = vehicleTable.selectionModel.selectedItem ?: return
+        if (sel.type.equals("sports car", true)) {
+            showAlert(Alert.AlertType.ERROR, "Car type error", "A sports car cannot be rented")
+            return
+        }
+        if (sel.status.equals("Available", true)) {
+            sel.status = "Rented"
+            vehicleTable.refresh()
+        }
+    }
+
+    @FXML fun handleReturnVehicle(event: ActionEvent?) {
+        val sel = vehicleTable.selectionModel.selectedItem ?: return
+        if (sel.status.equals("Rented", true)) {
+            sel.status = "Available"
+            vehicleTable.refresh()
+        } else {
+            showAlert(Alert.AlertType.ERROR, "Error", "This vehicle is not rented")
+        }
+    }
+
+    @FXML fun handleAddDealer(event: ActionEvent?) {
+        val newDealer = Dealer()
+        try {
+            val loader = FXMLLoader(javaClass.getResource("/hellofx/DealerDialog.fxml"))
+            val pane = loader.load<DialogPane>()
+            val ctrl = loader.getController<DealerDialogController>()
+            ctrl.setDealer(newDealer)
+
+            Dialog<ButtonType>().apply {
+                dialogPane = pane
+                title = "Add Dealer"
+            }.showAndWait().filter { it == ButtonType.OK }.ifPresent {
+                dealers.add(newDealer)
+                val names = dealers.map { it.name }
+                dealerChoiceBox.items = FXCollections.observableArrayList(names)
+                dealerChoiceBox.value = newDealer.name
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    private fun showAlert(type: Alert.AlertType, header: String, content: String) {
+        Alert(type).apply {
+            title = "Information"
+            headerText = header
+            contentText = content
         }.showAndWait()
+    }
+
+    private fun filterVehicles(query: String) {
+        val list = if (query.isBlank()) dealersOL
+        else dealersOL.filter { v ->
+            v.id.contains(query, true) ||
+                    v.make.contains(query, true) ||
+                    v.model.contains(query, true) ||
+                    v.type.contains(query, true)
+        }
+        vehicleTable.items = FXCollections.observableArrayList(list)
     }
 }
