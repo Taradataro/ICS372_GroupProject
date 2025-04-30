@@ -105,8 +105,9 @@
             </items>
             <padding><Insets left="10.0" /></padding>
         </ToolBar>
-
-        <ChoiceBox fx:id="statusFilterBox" layoutX="800.0" layoutY="280.0" prefWidth="120.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="280.0" />
+        <!-- Filter box -->
+        <Label layoutX="740.0" layoutY="280.0" text="Filter:"/>
+        <ChoiceBox fx:id="statusFilterBox" layoutX="800.0" layoutY="280.0" prefWidth="120.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="280.0"/>
 
         <ImageView fx:id="imageView" fitHeight="170.0" fitWidth="192.0" layoutX="573.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
             <image>
