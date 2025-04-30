@@ -8,6 +8,7 @@ module org.example.hellofx {
     requires annotations;
 
 
+
     opens org.example.hellofx to javafx.fxml;
     exports org.example.hellofx;
     exports Controller;
