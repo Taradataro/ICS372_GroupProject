@@ -130,7 +130,7 @@ class MainController : Initializable {
             "sedan"      -> "images/sedan.png"
             "sports car" -> "images/sports_car.png"
             "truck", "pickup" -> "images/truck.png"
-            else         -> "default.png"
+            else         -> "icon.png"
         }
         try {
             val img = Image(javaClass.getResourceAsStream("/$imageName"))
