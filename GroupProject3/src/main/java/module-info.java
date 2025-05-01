@@ -6,7 +6,7 @@ module org.example.hellofx {
     requires org.json;
     requires kotlin.stdlib;
     requires annotations;
-
+    requires java.prefs;
 
 
     opens org.example.hellofx to javafx.fxml;
